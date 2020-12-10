@@ -1,13 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  min-height: 100vh;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  height: 100%;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.grid__container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 3rem 1fr 5rem;
+  height: 100%;
+}
+
+header {
+  grid-area: header;
+  background: white;
+  color: black;
+}
+
+main {
+  grid-area: main;
+  padding: 2rem;
+}
+
+footer {
+  grid-area: footer;
+  color: black;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+img.medium {
+  max-width: 10rem;
+  width: 100%;
+}
+
+.product span {
+  color: #f0c040;
+  margin: 0.1rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* btn style */
+
+.btn__cart {
+  width: 2.1rem;
+  height: 2.1rem;
+  background: #ff4800;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* price */
+.price {
+  font-size: 16px;
+  font-weight: bolder;
 }
