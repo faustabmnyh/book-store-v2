@@ -1,32 +1,35 @@
-import Axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { listProducts } from "../../actions/productActions";
+import LoadingBox from "../../Components/LoadingBox";
+import MessageBox from "../../Components/MessageBox";
 import Product from "../../Components/Product";
-import { requests } from "../../utils/request";
 import "./Home.css";
 
 const Home = () => {
-  const [books, setBooks] = useState([]);
+  const productLists = useSelector((state) => state.productLists);
+  const { loading, error, products } = productLists;
+  const dispatch = useDispatch();
   useEffect(() => {
-    const requestBooks = async () => {
-      const request = await Axios.get(requests);
-      setBooks(request.data.items);
-    };
-    requestBooks();
-  }, []);
-  console.log(books);
+    dispatch(listProducts({}));
+  }, [dispatch]);
   return (
-    <div className="home__product">
-      {books.map((book) => (
-        <Product
-          title={book.volumeInfo.title}
-          authors={
-            book.volumeInfo.authors ? book.volumeInfo.authors : "DONT KNOW"
-          }
-          price={book.saleInfo.listPrice?.amount}
-          image={book.volumeInfo.imageLinks.thumbnail}
-        />
-      ))}
-    </div>
+    <>
+      {loading ? (
+        <LoadingBox />
+      ) : error ? (
+        <MessageBox variant="danger">{error}</MessageBox>
+      ) : (
+        <div className="home__product">
+          {products?.map((product) => (
+            <Product
+              key={product.id}
+              product={product}
+            />
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 

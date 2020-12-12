@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import LocalGroceryStoreIcon from "@material-ui/icons/LocalGroceryStore";
 import SearchIcon from "@material-ui/icons/Search";
 import "./Header.css";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
   return (
     <header>
       <div className="header">
@@ -57,7 +60,9 @@ const Header = () => {
           <Link to="/cart">
             <div className="header__cart">
               <LocalGroceryStoreIcon className="header__cartIcon" />
-              <p className="header__cartNumber">0</p>
+              <p className="header__cartNumber">
+                {cartItems.reduce((a, q) => a + q.qty, 0)}
+              </p>
             </div>
           </Link>
           <div className="header__auth">
