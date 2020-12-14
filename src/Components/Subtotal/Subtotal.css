@@ -1,12 +1,13 @@
 .subtotal {
   width: 100%;
   padding: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  margin: 10px 20px 0px 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
+  margin: 0px 20px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: white;
 }
 
 .subtotal__text {
@@ -16,15 +17,24 @@
 .subtotal button {
   width: 100%;
   background: #ff4800;
-  border-radius: 30px;
+  border-radius: 10px;
   color: white;
   border: none;
-  padding: 5px 10px;
+  height: 30px;
   outline: none;
   margin-top: 20px;
 }
 
 .subtotal button:hover {
   cursor: pointer;
-  background: #e64201;
+  background: #f54500;
+}
+button:disabled {
+  color: rgb(196, 196, 196);
+  background: #ff5e1f;
+  cursor: none;
+}
+.subtotal button:hover:disabled {
+  cursor: not-allowed;
+  background: #ff5e1f;
 }

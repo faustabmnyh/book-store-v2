@@ -1,0 +1,67 @@
+.completedSteps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.completedSteps > div {
+  border-top: 0.3rem solid #c0c0c0;
+  color: #c0c0c0;
+  flex: 1;
+}
+
+.completedSteps > div.active {
+  font-weight: bolder;
+  border-top-color: #f48000;
+  color: #f48000;
+}
+
+.completedSteps.active {
+  position: relative;
+}
+
+.completedSteps > div::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #c0c0c0;
+  border-radius: 50%;
+  top: 72px;
+  cursor: pointer;
+}
+
+.completedSteps > div:first-child:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #c0c0c0;
+  border-radius: 50%;
+  top: 72px;
+  left: 12px;
+  cursor: pointer;
+}
+.completedSteps > div:last-child::after {
+  cursor: default;
+}
+
+.completedSteps p {
+  margin-top: 10px;
+}
+
+.completedSteps > div.active::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #f48000;
+  border-radius: 50%;
+  top: 72px;
+  margin-left: 20px;
+}
+
+.completedSteps__finish {
+  margin-left: -10px;
+}

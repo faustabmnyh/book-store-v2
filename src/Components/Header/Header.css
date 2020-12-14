@@ -72,6 +72,7 @@
   object-fit: contain;
   cursor: pointer;
   padding: 4px 5px;
+  color: rgb(145, 145, 145);
   border-radius: 4px;
 }
 .header__cartIcon:hover {
@@ -115,6 +116,37 @@
   padding-left: 20px;
   border-left: 1px solid #ff480038;
   display: flex;
+}
+
+.header__userProfile {
+  position: relative;
+  margin-left: 17px;
+  font-size: 0.9rem;
+  display: flex;
+  font-family: "quicksand";
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+}
+
+.header__userProfile::after {
+  content: "";
+  position: absolute;
+  border-left: 1px solid #ff480038;
+  width: 20px;
+  height: 30px;
+  left: -1.2rem;
+}
+
+.header__userProfile p {
+  margin: 0 0.5rem;
+}
+
+.header__userProfile:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0.3rem;
 }
 
 .header__signup {
@@ -190,4 +222,30 @@
   width: 100%;
   cursor: pointer;
   background: rgba(0, 0, 0, 0.05);
+}
+
+.header__userProfileDropdown {
+  display: inline-block;
+  position: relative;
+  color: gray;
+}
+.header__dropdownContent {
+  display: none;
+  position: absolute;
+  padding: 8px 20px 8px 10px;
+  width: 70px;
+  top: 40px;
+  left: 0px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.349);
+  background: white;
+  font-size: 14px;
+}
+
+.header__dropdownContent li a {
+  color: #ff4800 ;
+}
+
+.header__userProfileDropdown:hover .header__dropdownContent {
+  display: block;
 }

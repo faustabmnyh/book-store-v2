@@ -1,13 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LocalGroceryStoreIcon from "@material-ui/icons/LocalGroceryStore";
+import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import SearchIcon from "@material-ui/icons/Search";
 import "./Header.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Avatar, makeStyles } from "@material-ui/core";
+import { signout } from "../../actions/userActions";
+
+const useStyles = makeStyles((theme) => ({
+  small: {
+    width: theme.spacing(4),
+    height: theme.spacing(4),
+  },
+}));
 
 const Header = () => {
+  const classes = useStyles();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+  const dispatch = useDispatch();
+  const handleSignout = () => {
+    dispatch(signout());
+  };
   return (
     <header>
       <div className="header">
@@ -59,20 +75,43 @@ const Header = () => {
           </div>
           <Link to="/cart">
             <div className="header__cart">
-              <LocalGroceryStoreIcon className="header__cartIcon" />
+              <ShoppingCartOutlinedIcon className="header__cartIcon" />
               <p className="header__cartNumber">
                 {cartItems.reduce((a, q) => a + q.qty, 0)}
               </p>
             </div>
           </Link>
-          <div className="header__auth">
-            <Link to="/signin">
-              <button className="header__signin">Sign In</button>
-            </Link>
-            <Link to="/signup">
-              <button className="header__signup">Sign Up</button>
-            </Link>
-          </div>
+          {userInfo ? (
+            <div className="header__userProfileDropdown">
+              <div className="header__userProfile">
+                <Avatar
+                  alt="girls"
+                  src="/images/pictures/avatar.jpg"
+                  className={classes.small}
+                />
+                <p>{userInfo.username}</p>
+              </div>
+              <ul className="header__dropdownContent">
+                <li>
+                  <Link to="/signin" onClick={handleSignout}>
+                    Sign Out
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <>
+              {" "}
+              <div className="header__auth">
+                <Link to="/signin">
+                  <button className="header__signin">Sign In</button>
+                </Link>
+                <Link to="/register">
+                  <button className="header__signup">Sign Up</button>
+                </Link>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </header>

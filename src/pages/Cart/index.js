@@ -1,25 +1,33 @@
-import { useState } from "react";
 import "./Cart.css";
 import { useDispatch, useSelector } from "react-redux";
 import MessageBox from "../../Components/MessageBox";
-import { removeFromCart } from "../../actions/cartActions";
+import {
+  minusCount,
+  plusCount,
+  removeFromCart,
+} from "../../actions/cartActions";
 import Subtotal from "../../Components/Subtotal";
 import { currency } from "../../Components/Currency";
+import AddIcon from "@material-ui/icons/Add";
+import RemoveIcon from "@material-ui/icons/Remove";
+import DeleteIcon from "@material-ui/icons/Delete";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-  const [qty, setQty] = useState(1);
   const { cartItems } = cart;
   const dispatch = useDispatch();
   const handleDelete = (productId) => {
     dispatch(removeFromCart(productId));
   };
-  console.log(cartItems);
   return (
     <div className="cart">
       <div className="cart__left">
-        <h1 className="cart__title">Shopping Cart</h1>
+        <h1 className="cart__title">
+          Shopping Cart{" "}
+          <ShoppingCartIcon style={{ fontSize: "30px", marginLeft: "10px" }} />
+        </h1>
         <hr />
         {cartItems.length === 0 ? (
           <MessageBox>
@@ -27,7 +35,7 @@ const Cart = () => {
           </MessageBox>
         ) : (
           <ul>
-            {cartItems.map((cartItem) => (
+            {cartItems?.map((cartItem) => (
               <>
                 <li className="cart__card" key={cartItem.id}>
                   <div>
@@ -37,55 +45,66 @@ const Cart = () => {
                       className="cart__cardImg"
                     />
                   </div>
-                  <div className="cart_cardText">
-                    <h2 className="cart__cardTitle">
-                      {cartItem.title}
-                      <span>
-                        {cartItem.authors.map((author) => (
-                          <div key={author}>
-                            by <a href="!#">{author}</a>
-                          </div>
-                        ))}
-                      </span>
-                    </h2>
-                    <div lassName="cart__cardPrice">
-                      <strong>
+                  <div className="cart__cardText">
+                    <div className="cart__textHeader">
+                      <h2 className="cart__cardTitle">
+                        <Link className="cart__titleText" to={`product/${cartItem.id}`}>
+                          {cartItem.title}
+                        </Link>
+                        <span>
+                          {cartItem.authors?.map((author) => (
+                            <div key={author}>
+                              <a href="!#" className="cart__cardAuthors">
+                                {author}
+                              </a>{" "}
+                              (author)
+                            </div>
+                          ))}
+                        </span>
+                      </h2>
+                      <div className="cart__cardPrice">
                         {cartItem.price !== 0
                           ? `IDR ${currency(cartItem.price)}`
                           : "FREE"}
-                      </strong>
+                      </div>
                     </div>
                     <div className="cart__btnAction">
                       <div className="cart__counter">
                         <p className="cart__counterTitle">Quantity :</p>
-                        <div>
+                        <div className="cart__conuterInput">
                           <button
-                            onClick={() => setQty(qty <= 1 ? 1 : qty - 1)}
-                            className="cart__counterBtnMinus"
+                            onClick={() => dispatch(minusCount(cartItem.id))}
+                            className={
+                              cartItem.qty <= 1
+                                ? "cart__btnDisabled"
+                                : "cart__counterBtnMinus"
+                            }
                           >
-                            -
+                            <RemoveIcon fontSize="small" />
                           </button>
-                          <input value={qty} className="cart_counterQuantity" />
+                          <div className="cart_counterQuantity">
+                            {cartItem.qty}
+                          </div>
                           <button
-                            onClick={() => setQty(qty + 1)}
+                            onClick={() => dispatch(plusCount(cartItem.id))}
                             className="cart__counterBtnPlus"
                           >
-                            +
+                            <AddIcon fontSize="small" />
                           </button>
                         </div>
                       </div>
                       <div className="cart__btn">
-                        <button
+                        <div
                           onClick={() => handleDelete(cartItem.id)}
                           className="cart__cardBtn"
                         >
+                          <DeleteIcon fontSize="small" />
                           Delete
-                        </button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </li>
-                <hr />
               </>
             ))}
           </ul>
