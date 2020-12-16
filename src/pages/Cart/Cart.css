@@ -1,6 +1,7 @@
 .cart {
   display: flex;
   justify-content: space-between;
+  font-family: "Quicksand", sans-serif;
 }
 
 .cart__left {
@@ -45,7 +46,7 @@
 }
 
 .cart__cardTitle {
-  font-weight: 600;
+  font-weight: 700;
   flex: 1;
   width: 100%;
   margin-bottom: 5px;
@@ -56,7 +57,7 @@
 }
 
 .cart__cardAuthors {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .cart__cardTitle span {

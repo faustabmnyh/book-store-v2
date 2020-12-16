@@ -1,15 +1,45 @@
-.detailProducts__content {
+.detailProducts {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  font-family: "Quicksand", sans-serif;
+}
+
+.detailProducts__container {
+  max-width: 880px;
+  background: white;
+  padding: 1.2rem;
+  margin-top: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+}
+
+.detailProduct__bookInfo {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.detailProducts__card {
+  margin-right: 20px;
+}
+.detailProducts__left {
+  flex: 0.7;
+}
+.detailProducts__right {
+  flex: 0.3;
+  min-width: 300px;
 }
 
 .detailProducts__image {
   max-width: 12rem;
   width: 100%;
+  margin-right: 20px;
 }
 
 .detailProducts__description {
-    margin-right: 3rem;
+  max-width: 55rem;
+  width: 100%;
+  margin: 0;
+  /* margin-right: 3rem; */
 }

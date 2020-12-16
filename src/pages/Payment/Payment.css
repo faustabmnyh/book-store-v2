@@ -1,5 +1,7 @@
 .payment {
   display: flex;
+  font-family: "quicksand";
+  justify-content: space-between;
 }
 
 .payment__container {
@@ -7,13 +9,13 @@
   padding: 1.2rem;
   margin-top: 20px;
   border-radius: 20px;
-  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
 }
 .payment__left {
+  margin-right: 20px;
   flex: 0.7;
 }
 .payment__right {
-  margin-left: 20px;
   flex: 0.3;
 }
 
@@ -24,10 +26,13 @@
 
 .payment__card {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  margin-top: 20px;
 }
 
 .payment__cardBook {
+  align-items: center;
   display: flex;
 }
 
@@ -35,4 +40,5 @@
   max-width: 5rem;
   width: 100%;
   border-radius: 20px;
+  margin-right: 10px;
 }

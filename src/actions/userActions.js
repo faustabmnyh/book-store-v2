@@ -92,6 +92,7 @@ export const signout = () => (dispatch) => {
   auth.signOut();
   localStorage.removeItem("userInfo");
   localStorage.removeItem("cartItems");
+  localStorage.removeItem("shipping");
   dispatch({
     type: USER_SIGOUT,
   });

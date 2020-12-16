@@ -11,7 +11,7 @@ const Shipping = () => {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const cart = useSelector((state) => state.cart);
-  const { shippingAddress } = cart;
+  const { shippingAddress, cartItems } = cart;
   const [values, setValues] = useState({
     fullName: shippingAddress.fullName,
     address: shippingAddress.address,
@@ -19,7 +19,7 @@ const Shipping = () => {
     postalCode: shippingAddress.postalCode,
     country: shippingAddress.country,
   });
-  if (!userInfo) {
+  if (!userInfo && cartItems.length === 0) {
     history.push("/signin");
   }
   const handleChange = (prop) => (e) => {

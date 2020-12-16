@@ -93,6 +93,11 @@ const Header = () => {
               </div>
               <ul className="header__dropdownContent">
                 <li>
+                  <Link to="/orderhistory">
+                    Order History 
+                  </Link>
+                </li>
+                <li>
                   <Link to="/signin" onClick={handleSignout}>
                     Sign Out
                   </Link>

@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: center;
   background: white;
+  font-family: "Quicksand", sans-serif;
 }
 
 .subtotal__text {
@@ -17,10 +18,13 @@
 .subtotal button {
   width: 100%;
   background: #ff4800;
-  border-radius: 10px;
+  border-radius: 30px;
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 700;
   color: white;
   border: none;
-  height: 30px;
+  height: 35px;
   outline: none;
   margin-top: 20px;
 }

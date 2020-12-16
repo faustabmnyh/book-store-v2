@@ -7,6 +7,8 @@ import Home from "../Home";
 import DetailProduct from "../DetailProducts";
 import Shipping from "../Shipping";
 import Payment from "../Payment";
+import Order from "../Order";
+import OrderHistory from "../OrderHistory";
 
 const MainApp = () => {
   return (
@@ -18,6 +20,8 @@ const MainApp = () => {
         <Route exact path="/cart/:id?" component={Cart} />
         <Route exact path="/shipping" component={Shipping} />
         <Route exact path="/payment" component={Payment} />
+        <Route exact path="/order/:id" component={Order} />
+        <Route exact path="/orderhistory" component={OrderHistory} />
       </main>
       <Footer />
     </div>

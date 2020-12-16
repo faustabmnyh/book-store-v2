@@ -5,6 +5,7 @@
   color: white;
   position: sticky;
   background: white;
+  font-family: "Quicksand", sans-serif;
   top: 0;
   z-index: 100;
   height: 60px;
@@ -185,9 +186,9 @@
 .header__categoryDropdown {
   display: none;
   position: absolute;
-  width: 150px;
-  top: 45px;
-  left: -40px;
+  min-width: fit-content;
+  top: 40px;
+  left: -20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.349);
   background: white;
@@ -215,11 +216,11 @@
 .dropdown__link {
   text-decoration: none;
   color: #ff4800;
-  font-size: 12px;
+  font-size: 14px;
 }
 .dropdown__item li:hover {
   color: #da4004;
-  width: 100%;
+  /* width: 100%; */
   cursor: pointer;
   background: rgba(0, 0, 0, 0.05);
 }
@@ -232,8 +233,7 @@
 .header__dropdownContent {
   display: none;
   position: absolute;
-  padding: 8px 20px 8px 10px;
-  width: 70px;
+  min-width: 100px;
   top: 40px;
   left: 0px;
   border-radius: 10px;
@@ -242,8 +242,16 @@
   font-size: 14px;
 }
 
+.header__dropdownContent li {
+  padding: 8px 20px 8px 10px;
+}
+.header__dropdownContent li:hover {
+  background-color: antiquewhite;
+  background: rgba(0, 0, 0, 0.05);
+}
+
 .header__dropdownContent li a {
-  color: #ff4800 ;
+  color: #ff4800;
 }
 
 .header__userProfileDropdown:hover .header__dropdownContent {

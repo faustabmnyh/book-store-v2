@@ -1,6 +1,7 @@
 import {
   ADD_SHIPPING_ADDRESS,
   ADD_TO_CART,
+  CART_EMPTY,
   MINUS_COUNT,
   PLUS_COUNT,
   REMOVE_FROM_CART,
@@ -60,6 +61,11 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
       return {
         ...state,
         shippingAddress: action.payload,
+      };
+    case CART_EMPTY:
+      return {
+        ...state,
+        cartItems: [],
       };
     default:
       return state;

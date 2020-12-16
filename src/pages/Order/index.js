@@ -1,24 +1,30 @@
-import React from "react";
-import "./Payment.css";
-import { useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { detailOrder } from "../../actions/orderActions";
 import CompletedSteps from "../../Components/CompletedSteps";
 import { currency } from "../../Components/Currency";
-import OrderSummary from "../../Components/OrderSummary";
+import LoadingBox from "../../Components/LoadingBox";
+import MessageBox from "../../Components/MessageBox";
+import CompletedPaymentSummary from "../../Components/CompletedPaymentSummary";
 
-const Payment = () => {
-  const history = useHistory();
-  const cart = useSelector((state) => state.cart);
-  cart.itemsPrice = cart.cartItems.reduce((a, q) => a + q.price * q.qty, 0);
-  cart.shippingPrice = cart.itemsPrice > 200000 ? 0 : 15000;
-  cart.taxPrice = Math.round(0.05 * cart.itemsPrice);
-  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
-  if (!cart.shippingAddress || cart.cartItems.length === 0) {
-    history.push("/shipping");
-  }
-  return (
+const Order = () => {
+  let { id } = useParams();
+  const dispatch = useDispatch();
+  const orderDetails = useSelector((state) => state.orderDetails);
+  const { loading, error, order } = orderDetails;
+  console.log(order);
+  useEffect(() => {
+    dispatch(detailOrder(id));
+  }, [dispatch, id]);
+  return loading ? (
+    <LoadingBox />
+  ) : error ? (
+    <MessageBox variant="danger">{error}</MessageBox>
+  ) : (
     <div>
-      <CompletedSteps stepOne stepTwo stepThree />
+      <CompletedSteps stepOne stepTwo stepThree stepFour />
+      <h1>Order {order.id}</h1>
       <div className="payment">
         <div className="payment__left">
           <ul>
@@ -27,13 +33,12 @@ const Payment = () => {
                 <div>
                   <h2>Shipping</h2>
                   <p>
-                    <strong>Name : </strong> {cart.shippingAddress.fullName}{" "}
+                    <strong>Name : </strong> {order.data.shipping.fullName}{" "}
                     <br />
-                    <strong>Adddress : </strong> {cart.shippingAddress.address}{" "}
+                    <strong>Adddress : </strong> {order.data.shipping.address}{" "}
                     <br />
-                    {cart.shippingAddress.city},{" "}
-                    {cart.shippingAddress.postalCode},{" "}
-                    {cart.shippingAddress.country}
+                    {order.data.shipping.city}, {order.data.shipping.postalCode}
+                    , {order.data.shipping.country}
                   </p>
                 </div>
               </li>
@@ -42,7 +47,7 @@ const Payment = () => {
               <div className="payment__container">
                 <h2>Order Items</h2>
                 <ul>
-                  {cart.cartItems.map((cartItem) => (
+                  {order.data.orderItems.cartItems.map((cartItem) => (
                     <li key={cartItem.id}>
                       <div className="payment__card">
                         <div className="payment__cardBook">
@@ -74,7 +79,10 @@ const Payment = () => {
         </div>
         <div className="payment__right">
           <div className="payment__container">
-            <OrderSummary cart={cart} />
+            <CompletedPaymentSummary
+              order={order}
+              id={id}
+            />
           </div>
         </div>
       </div>
@@ -82,4 +90,4 @@ const Payment = () => {
   );
 };
 
-export default Payment;
+export default Order;
