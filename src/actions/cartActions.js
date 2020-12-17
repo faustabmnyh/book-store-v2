@@ -11,14 +11,14 @@ export const addToCart = (product, qty) => async (dispatch, getState) => {
     type: ADD_TO_CART,
     payload: {
       id: product.id,
-      title: product.volumeInfo.title,
+      title: product.volumeInfo.title || product.title,
       authors: product.volumeInfo.authors
         ? product.volumeInfo.authors
-        : ["DONT KNOW"],
+        : ["DONT KNOW"] || product.authors,
       price: product.saleInfo.listPrice?.amount
         ? product.saleInfo.listPrice?.amount
-        : 0,
-      image: product.volumeInfo.imageLinks.thumbnail,
+        : 0 || product.price,
+      image: product.volumeInfo.imageLinks.thumbnail || product.image,
       qty,
     },
   });

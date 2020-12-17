@@ -53,7 +53,6 @@
 }
 .cart__titleText {
   font-size: 1.4rem;
-  color: #ff7a46;
 }
 
 .cart__cardAuthors {
@@ -86,12 +85,18 @@
   align-items: center;
   background: none;
   text-align: center;
-  font-size: 14px;
   margin-top: 20px;
   justify-content: space-between;
   width: 70px;
   outline: none;
   color: gray;
+}
+
+.cart__cardBtn p {
+  font-family: "Quicksand", sans-serif;
+  margin-left: 8px;
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 
 .cart__cardBtn::after {
@@ -123,8 +128,7 @@
   height: 20px;
   outline: none;
   cursor: default;
-  margin: 2px 5px;
-  border-bottom: #ff4800 1px solid;
+  border: none;
 }
 
 .cart__counterBtnMinus,
@@ -137,10 +141,12 @@
   width: 23px;
   height: 23px;
   color: white;
-  background: #ff4800;
   border-radius: 3px;
   transition: all 0.2s ease;
   border-radius: 50%;
+  background: #ff4800;
+  cursor: pointer;
+  box-shadow: 0px 5px 10px rgba(255, 72, 0, 0.3);
 }
 
 .cart__counterBtnMinus:hover,
@@ -158,11 +164,12 @@
   border: none;
   width: 23px;
   height: 23px;
-  color: white;
-  background: #cacaca;
   border-radius: 3px;
   transition: all 0.2s ease;
   border-radius: 50%;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.07);
+  cursor: default;
+  background: whitesmoke;
 }
 
 .cart__cardPrice {

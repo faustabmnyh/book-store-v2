@@ -48,7 +48,10 @@ const Cart = () => {
                   <div className="cart__cardText">
                     <div className="cart__textHeader">
                       <h2 className="cart__cardTitle">
-                        <Link className="cart__titleText" to={`product/${cartItem.id}`}>
+                        <Link
+                          className="cart__titleText"
+                          to={`product/${cartItem.id}`}
+                        >
                           {cartItem.title}
                         </Link>
                         <span>
@@ -80,7 +83,7 @@ const Cart = () => {
                                 : "cart__counterBtnMinus"
                             }
                           >
-                            <RemoveIcon fontSize="small" />
+                            <RemoveIcon style={{ fontSize: "15px" }} />
                           </button>
                           <div className="cart_counterQuantity">
                             {cartItem.qty}
@@ -89,7 +92,7 @@ const Cart = () => {
                             onClick={() => dispatch(plusCount(cartItem.id))}
                             className="cart__counterBtnPlus"
                           >
-                            <AddIcon fontSize="small" />
+                            <AddIcon style={{ fontSize: "15px" }} />
                           </button>
                         </div>
                       </div>
@@ -99,7 +102,7 @@ const Cart = () => {
                           className="cart__cardBtn"
                         >
                           <DeleteIcon fontSize="small" />
-                          Delete
+                          <p>Delete</p>
                         </div>
                       </div>
                     </div>

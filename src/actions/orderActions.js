@@ -15,7 +15,7 @@ import {
 } from "../constants/orderConstants";
 import { db } from "../utils/firebase";
 
-// we gonna change orderTempId dengan user id
+// we want to add the all to
 
 export const createOrder = (order) => async (dispatch) => {
   dispatch({ type: CREATE_ORDER_REQUEST });
@@ -23,6 +23,19 @@ export const createOrder = (order) => async (dispatch) => {
     dispatch({ type: CREATE_ORDER_SUCCESS, payload: order });
     db.ref(`orders/${order.order.orderTempId}`).push({
       name: order.userInfo.username,
+      userId: order.userInfo.id,
+      orderItems: order.order.orderItems,
+      price: order.totalPrice,
+      shipping: order.shippingAddress,
+      isPaid: order.isPaid,
+      isDelivered: order.isDelivered,
+      orderTempId: order.order.orderTempId,
+      orderAt: Date.now(),
+    });
+    // this is for order history each user
+    db.ref(`orders_history/${order.userInfo.id}`).push({
+      name: order.userInfo.username,
+      userId: order.userInfo.id,
       orderItems: order.order.orderItems,
       price: order.totalPrice,
       shipping: order.shippingAddress,
@@ -73,8 +86,6 @@ export const detailOrder = (orderTempId) => async (dispatch) => {
 };
 
 export const orderPayment = (order, paymentResult) => async (dispatch) => {
-  console.log("this is payment", paymentResult);
-
   dispatch({ type: ORDER_PAY_REQUEST });
   try {
     const dataUpdate = await db.ref(
@@ -84,9 +95,11 @@ export const orderPayment = (order, paymentResult) => async (dispatch) => {
       {
         price: order.data.price,
         name: order.data.name,
+        userId: order.data.userId,
         isDelivered: false,
         orderPaidAt: paymentResult.create_time,
         isPaid: true,
+        paidAt: Date.now(),
         orderTempId: order.data.orderTempId,
         shipping: order.data.shipping,
         orderItems: order.data.orderItems,
@@ -121,25 +134,25 @@ export const orderPayment = (order, paymentResult) => async (dispatch) => {
   }
 };
 
-export const orderHistory = () => async (dispatch) => {
+export const orderHistory = (userId) => async (dispatch) => {
   dispatch({ type: ORDER_HISTORY_REQUEST });
   try {
-    const data = await db.ref("orders");
+    const data = await db.ref(`orders_history/${userId}`);
+
     data.on("value", (values) => {
       const dataOrder = [];
-      Object?.keys(values.val()).map(
-        (value) => console.log(values.val()[value])
-        // dataOrder.push({
-        //   id: value,
-        //   data: values.val()[value],
-        // })
-      );
-
-      // console.log(dataOrder);
-      // dispatch({
-      //   type: ORDER_PAY_SUCCESS,
-      //   payload: dataOrder[0],
-      // });
+      if (values) {
+        Object?.keys(values.val() || {}).map((value) =>
+          dataOrder.push({
+            id: value,
+            data: values.val()[value],
+          })
+        );
+        dispatch({
+          type: ORDER_HISTORY_SUCCESS,
+          payload: dataOrder,
+        });
+      }
     });
   } catch (err) {
     dispatch({

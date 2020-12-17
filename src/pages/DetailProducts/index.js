@@ -20,13 +20,13 @@ const DetailProduct = () => {
     dispatch(detailsProduct(id));
   }, [dispatch, id]);
   return (
-    <div>
+    <div className="detailProduct">
       {loading ? (
         <LoadingBox />
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <div className="detailProducts">
+        <div className="detailProducts__content">
           <div className="detailProducts__card">
             <div className="detailProducts__container">
               <div className="detailProducts__left">

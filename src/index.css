@@ -125,6 +125,14 @@ ul {
   background: #ffe0e0e0;
   margin-bottom: 1rem;
 }
+
+.error__dangerSmall {
+  padding: 0.5rem;
+  color: #a02020;
+  background: #ffe0e0e0;
+  margin-bottom: 1rem;
+}
+
 .error__success {
   color: #20a020;
   background: #eeffe0;

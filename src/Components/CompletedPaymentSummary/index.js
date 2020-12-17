@@ -17,9 +17,7 @@ const CompletedPaymentSummary = ({ order, id }) => {
     success: successPayment,
   } = orderPayments;
   const dispatch = useDispatch();
-  console.log((order.data.orderItems.totalPrice / 14000).toFixed(2));
   useEffect(() => {
-    console.log(process.env.REACT_APP_PAYPAL_CLIENT_ID);
     const addPaypalScript = async () => {
       const script = document.createElement("script");
       script.type = "text/javascript";
@@ -32,7 +30,6 @@ const CompletedPaymentSummary = ({ order, id }) => {
       };
       document.body.appendChild(script);
     };
-    console.log(order);
     if (
       !order ||
       successPayment ||
@@ -50,7 +47,6 @@ const CompletedPaymentSummary = ({ order, id }) => {
       }
     }
   }, [id, dispatch, order, sdkReady, successPayment]);
-  console.log("order", order);
   const handleSuccessPayment = (paymentResult) => {
     dispatch(orderPayment(order, paymentResult));
   };

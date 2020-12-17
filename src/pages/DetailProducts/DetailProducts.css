@@ -1,6 +1,11 @@
-.detailProducts {
+.detailProduct {
+  width: 100%;
+  margin: 0 auto;
+}
+.detailProducts__content {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   font-family: "Quicksand", sans-serif;
 }
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { createOrder, detailOrder } from "../../actions/orderActions";
+import { createOrder } from "../../actions/orderActions";
 import { CREATE_ORDER_RESET } from "../../constants/orderConstants";
 import { currency } from "../Currency";
 import "./OrderSummary.css";

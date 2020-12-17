@@ -1,6 +1,3 @@
-.checkout__ {
-  width: 100%;
-}
 .checkout__shipSubtitle {
   font-size: 12px;
   color: gray;
@@ -10,19 +7,23 @@
   margin-right: 5px;
 }
 
+.checkout__btn {
+  width: 100%;
+}
+
 .checkout__BtnCart,
 .checkout__BtnBuy {
   width: 100%;
-  background: #ff4800;
-  border-radius: 30px;
-  font-family: "Quicksand", sans-serif;
-  letter-spacing: 1px;
-  font-weight: 700;
-  color: white;
-  border: none;
   height: 35px;
-  outline: none;
-  margin-top: 10px;
+  font-family: "Quicksand", sans-serif;
+  color: white;
+  border-radius: 30px;
+  background: #ff4800;
+  border: none;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0px 5px 10px rgba(255, 72, 0, 0.3);
 }
 .checkout__BtnCart {
   background: #ff4800;
@@ -31,18 +32,21 @@
 }
 
 .checkout__BtnBuy {
-  background: #ff2525;
+  margin-top: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.07);
+  background: white;
+  color: #ff4800;
   display: flex;
   align-items: center;
 }
 
 .checkout__BtnCart:hover {
-  background: #e24202;
+  background: rgb(243, 69, 0);
   cursor: pointer;
 }
 
 .checkout__BtnBuy:hover {
-  background: #e42121;
+  background: rgb(250, 250, 250);
   cursor: pointer;
 }
 .checkout__imageBtn {
@@ -55,9 +59,9 @@
 }
 
 .checkout__counterInput {
-  margin: 5px 0px 0px 0px;
+  display: flex;
+  margin: 10px 0px 20px 0px;
 }
-
 
 .checkout__counter {
   margin: 10px 0px;
@@ -74,29 +78,33 @@
 
 .checkout__counterBtnMinus,
 .checkout__counterBtnPlus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   outline: none;
   border: none;
   width: 23px;
   height: 23px;
-  color: black;
+  color: white;
   border-radius: 3px;
   transition: all 0.2s ease;
-}
-
-.checkout__counterBtnMinus {
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-}
-.checkout__counterBtnPlus {
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-}
-
-.checkout__counterBtnMinus:hover,
-.checkout__counterBtnPlus:hover {
-  cursor: pointer;
-  color: white;
+  border-radius: 50%;
   background: #ff4800;
+  cursor: pointer;
+  box-shadow: 0px 5px 10px rgba(255, 72, 0, 0.3);
+}
+
+.checkout__counterBtnMinusDisabled {
+  outline: none;
+  border: none;
+  width: 23px;
+  height: 23px;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.07);
+  cursor: default;
+  background: whitesmoke;
 }
 
 .checkout__price {
