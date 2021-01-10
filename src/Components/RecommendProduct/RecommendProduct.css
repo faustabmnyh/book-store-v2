@@ -1,0 +1,36 @@
+.recommendProduct {
+  max-width: 90vw;
+  width: 100%;
+  display: flex;
+  background: white;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  border-radius: 20px;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.recommendProduct h2 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.recommendProduct__content {
+  display: flex;
+  overflow-x: auto;
+}
+.recommendProduct__container {
+  margin-right: 0.5rem;
+}
+.recommendProduct__image {
+  margin: 10px;
+  object-fit: cover;
+  width: 9rem;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.recommendProduct__content::-webkit-scrollbar {
+  display: none;
+}

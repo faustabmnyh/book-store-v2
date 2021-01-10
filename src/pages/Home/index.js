@@ -4,6 +4,7 @@ import { listProducts } from "../../actions/productActions";
 import LoadingBox from "../../Components/LoadingBox";
 import MessageBox from "../../Components/MessageBox";
 import Product from "../../Components/Product";
+import RecommendProduct from "../../Components/RecommendProduct";
 import "./Home.css";
 
 const Home = () => {
@@ -21,14 +22,14 @@ const Home = () => {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div className="home__product">
-          {products?.map((product) => (
-            <Product
-              key={product.id}
-              product={product}
-            />
-          ))}
+          {products?.map((product) =>
+            product.saleInfo.saleability === "NOT_FOR_SALE" ? null : (
+              <Product key={product.id} product={product} />
+            )
+          )}
         </div>
       )}
+      <RecommendProduct />
     </>
   );
 };

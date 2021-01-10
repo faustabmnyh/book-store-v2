@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  font-family: "Quicksand", sans-serif;
 }
 
 .completedSteps > div {

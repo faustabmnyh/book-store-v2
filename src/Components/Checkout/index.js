@@ -10,7 +10,6 @@ import { useHistory } from "react-router-dom";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 
-
 const Checkout = ({ product }) => {
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
@@ -18,6 +17,10 @@ const Checkout = ({ product }) => {
   const handleAddToCart = () => {
     history.push("/cart");
     dispatch(addToCart(product, qty));
+  };
+  const handleBuyNow = () => {
+    dispatch(addToCart(product, qty));
+    history.push("/signin?redirect=shipping");
   };
   return (
     <div className="checkout">
@@ -32,43 +35,50 @@ const Checkout = ({ product }) => {
         <p className="checkout__price">
           {product.saleInfo.listPrice?.amount
             ? `IDR ${currency(product.saleInfo.listPrice?.amount)}`
+            : product.saleInfo.saleability === "NOT_FOR_SALE"
+            ? "NOT FOR SALE"
             : "FREE"}
         </p>
         <div className="checkout__counter">
           <p className="checkout__counterTitle">Quantity :</p>
           <div className="checkout__counterInput">
             <button
-              className={
-                qty <= 1
-                  ? "checkout__counterBtnMinusDisabled"
-                  : "checkout__counterBtnMinus"
+              className={"checkout__counterBtnMinus"}
+              disabled={
+                product.saleInfo.saleability === "NOT_FOR_SALE" || qty <= 1
               }
               onClick={() => setQty(qty <= 1 ? 1 : qty - 1)}
             >
-              <RemoveIcon style={{fontSize: "15px"}} />
+              <RemoveIcon style={{ fontSize: "15px" }} />
             </button>
-            <p className="checkout_counterQuantity">{qty}</p>
+            <p className="checkout_counterQuantity">
+              {product.saleInfo.saleability === "NOT_FOR_SALE" ? 0 : qty}
+            </p>
             <button
               className="checkout__counterBtnPlus"
+              disabled={product.saleInfo.saleability === "NOT_FOR_SALE"}
               onClick={() => setQty(qty + 1)}
             >
-              <AddIcon  style={{fontSize: "15px"}}/>
+              <AddIcon style={{ fontSize: "15px" }} />
             </button>
           </div>
         </div>
         <div className="checkout__btn">
-          <button className="checkout__BtnCart" onClick={handleAddToCart}>
+          <button
+            className="checkout__BtnCart"
+            onClick={handleAddToCart}
+            disabled={product.saleInfo.saleability === "NOT_FOR_SALE"}
+          >
             <div className="checkout__imageBtn">
               <LocalGroceryStoreIcon />
             </div>
-            <div
-              className="checkout__btnCartName"
-              onClick={() => history.push("/cart")}
-            >
-              Add To Cart
-            </div>
+            <div className="checkout__btnCartName">Add To Cart</div>
           </button>
-          <button className="checkout__BtnBuy">
+          <button
+            className="checkout__BtnBuy"
+            disabled={product.saleInfo.saleability === "NOT_FOR_SALE"}
+            onClick={handleBuyNow}
+          >
             <div className="checkout__imageBtn">
               <CreditCardIcon />
             </div>

@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { register } from "../../actions/userActions";
 import LoadingBox from "../../Components/LoadingBox";
 import MessageBox from "../../Components/MessageBox";
+import { USER_REGISTER_FAIL } from "../../constants/userConstants";
 import "./Register.css";
 
 const Register = ({ location }) => {
@@ -23,9 +24,14 @@ const Register = ({ location }) => {
   const dispatch = useDispatch();
   const redirect = location.search ? location.search.split("=")[1] : "/";
   const handleSubmit = (e) => {
+    // setErrorPassword("");
     e.preventDefault();
     if (values.password !== values.confirmPassword) {
       setErrorPassword("Password and Confirm Password Must be Match");
+      dispatch({
+        type: USER_REGISTER_FAIL,
+        payload: "",
+      });
     } else {
       dispatch(register(values));
     }
@@ -45,7 +51,7 @@ const Register = ({ location }) => {
         />
       </Link>
       {loading && <LoadingBox />}
-      {error && (
+      {(error || errorPassword) && (
         <MessageBox variant="danger">{error || errorPassword}</MessageBox>
       )}
       <div className="register__container">
@@ -69,6 +75,7 @@ const Register = ({ location }) => {
           <input
             type="password"
             placeholder="Password"
+            onClick={() => setErrorPassword("")}
             value={values.password}
             onChange={handleChange("password")}
           />

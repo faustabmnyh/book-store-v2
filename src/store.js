@@ -8,8 +8,10 @@ import {
   orderPaymentReducer,
 } from "./reducers/orderReducers";
 import {
+  productCategorySearchReducer,
   productDetailsReducer,
   productListReducer,
+  productSearchListReducer,
 } from "./reducers/productReducers";
 import {
   userRegisterReducer,
@@ -41,6 +43,8 @@ const reducer = combineReducers({
   orderDetails: orderDetailReducer,
   orderPayment: orderPaymentReducer,
   orderHistory: orderHistoryReducer,
+  productSearchLists: productSearchListReducer,
+  productCategory: productCategorySearchReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

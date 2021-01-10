@@ -1,0 +1,65 @@
+.categoryPage h1 {
+  font-family: "Quicksand", sans-serif;
+  text-transform: uppercase;
+}
+
+.categoryPage__content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-family: "Quicksand", sans-serif;
+}
+.categoryPage__container {
+  min-height: 25rem;
+  max-width: 220px;
+  width: 100%;
+  background: white;
+  padding: 1.2rem;
+  margin: 20px 0.5rem 0px 0.5rem;
+  border-radius: 20px;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.categoryPage__authors {
+  font-size: 14px;
+  color: rgb(158, 158, 158);
+}
+
+.magazines {
+  min-height: 20rem;
+}
+
+.categoryPage__image {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  margin: 0 auto 1rem;
+  max-width: 9rem;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.categoryPage__btnContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.categoryPage__btn {
+  width: 6rem;
+  height: 30px;
+  font-family: "Quicksand", sans-serif;
+  color: white;
+  border-radius: 30px;
+  background: #ff4800;
+  border: none;
+  font-weight: 700;
+  margin-left: 1rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0px 5px 10px rgba(255, 72, 0, 0.3);
+}

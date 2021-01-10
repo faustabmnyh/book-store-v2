@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { saveShippingAddress } from "../../actions/cartActions";
 
 const Shipping = () => {
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const history = useHistory();
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;

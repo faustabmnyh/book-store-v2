@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import SearchIcon from "@material-ui/icons/Search";
 import "./Header.css";
@@ -16,13 +16,21 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
   const classes = useStyles();
+  const [titleBook, setTitleBook] = useState("");
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const dispatch = useDispatch();
+  const history = useHistory();
   const handleSignout = () => {
     dispatch(signout());
+  };
+  const handleSearch = () => {
+    history.push(`/search/${titleBook}`);
+  };
+  const handleCategory = (e) => {
+    history.push(`/category/${e.target.id}`);
   };
   return (
     <header>
@@ -36,12 +44,13 @@ const Header = () => {
             />
           </Link>
         </div>
-        <div className="header__center">
+        <div className="header__center" onSubmit={handleSearch}>
           <form className="header__search">
             <input
               placeholder="Search..."
               className="header__searchInput"
               type="text"
+              onChange={(e) => setTitleBook(e.target.value)}
             />
             <button className="header__seacrhMainIcon" type="submit">
               <SearchIcon className="header__searchIcon" />
@@ -54,20 +63,19 @@ const Header = () => {
               <p className="header__categoryTitle">Category</p>
               <div className="header__categoryDropdown">
                 <ul className="dropdown__item">
-                  <li>
-                    <a href="!#" className="dropdown__link">
-                      Hardcover
-                    </a>
+                  <li
+                    id="books"
+                    onClick={handleCategory}
+                    className="dropdown__link"
+                  >
+                    Books
                   </li>
-                  <li>
-                    <a href="!#" className="dropdown__link">
-                      Paperback
-                    </a>
-                  </li>
-                  <li>
-                    <a href="!#" className="dropdown__link">
-                      E-Book
-                    </a>
+                  <li
+                    id="magazines"
+                    onClick={handleCategory}
+                    className="dropdown__link"
+                  >
+                    Magazines
                   </li>
                 </ul>
               </div>
@@ -93,9 +101,7 @@ const Header = () => {
               </div>
               <ul className="header__dropdownContent">
                 <li>
-                  <Link to="/orderhistory">
-                    Order History 
-                  </Link>
+                  <Link to="/orderhistory">Order History</Link>
                 </li>
                 <li>
                   <Link to="/signin" onClick={handleSignout}>
