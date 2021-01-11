@@ -1,22 +1,20 @@
 .detailProduct {
   width: 100%;
-  margin: 0 auto;
 }
 .detailProducts__content {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   font-family: "Quicksand", sans-serif;
 }
 
 .detailProducts__container {
-  max-width: 880px;
   background: white;
   padding: 1.2rem;
   margin-top: 20px;
   border-radius: 20px;
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
   height: fit-content;
+  margin: 10px;
 }
 
 .detailProduct__bookInfo {
@@ -25,14 +23,11 @@
   display: flex;
 }
 
-.detailProducts__card {
-  margin-right: 20px;
-}
 .detailProducts__left {
-  flex: 0.7;
+  flex: 2 1 10rem;
 }
 .detailProducts__right {
-  flex: 0.3;
+  flex: 1 1 20rem;
   min-width: 300px;
 }
 
@@ -44,8 +39,58 @@
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.detailProducts__description {
-  max-width: 55rem;
-  width: 100%;
-  margin: 0;
+@media (max-width: 1024px) {
+  .detailProducts__left h1 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .detailProducts__content {
+    flex-wrap: wrap;
+  }
+
+  .detailProducts__container {
+    width: 100%;
+  }
+
+  .detailProducts__left h1 {
+    font-size: 25px;
+  }
+}
+@media (max-width: 600px) {
+  .detailProducts__left {
+    font-size: 14px;
+  }
+  .detailProducts__left h1 {
+    font-size: 20px;
+  }
+  .detailProducts__left h2 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 440px) {
+  .detailProducts__image {
+    max-width: 100px;
+  }
+
+  .detailProduct__bookInfo {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 425px) {
+  .detailProducts__right {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .detailProducts__left h1 {
+    font-size: 18px;
+  }
+  .detailProduct__bookInfo {
+    justify-content: center;
+  }
 }

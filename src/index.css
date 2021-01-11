@@ -54,6 +54,19 @@ img.medium {
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  img.medium {
+    max-width: 130px;
+    width: 100%;
+  }
+}
+@media (max-width: 425px) {
+  img.medium {
+    max-width: 100px;
+    width: 100%;
+  }
+}
+
 .product span {
   color: #f0c040;
   margin: 0.1rem;
@@ -82,6 +95,13 @@ ul {
   align-items: center;
   cursor: pointer;
   box-shadow: 0px 4px 8px rgba(255, 97, 5, 0.4);
+}
+
+@media (max-width: 768px) {
+  .btn__cart {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 /* price */

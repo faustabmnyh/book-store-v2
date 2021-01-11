@@ -132,5 +132,30 @@
 }
 
 .checkout__price {
-  font-weight: bolder ;
+  font-weight: bolder;
+}
+
+@media (max-width: 600px) {
+  .checkout {
+    font-size: 14px;
+  }
+  .checkout__shipTitle {
+    font-size: 16px;
+  }
+
+  .checkout__price {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 425px) {
+  .checkout__BtnCart,
+  .checkout__BtnBuy {
+    height: 30px;
+  }
+
+  .checkout__BtnBuy:disabled,
+  .checkout__BtnCart:disabled {
+    height: 30px;
+  }
 }

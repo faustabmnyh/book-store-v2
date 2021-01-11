@@ -273,3 +273,36 @@
 .header__userProfileDropdown:hover .header__dropdownContent {
   display: block;
 }
+
+@media (max-width: 700px) {
+  .header__category {
+    display: none;
+  }
+
+  .header__cart {
+    display: none;
+  }
+
+  .header__userProfile {
+    margin-left: 0;
+  }
+
+  .header__userProfile::after {
+    content: "";
+    position: absolute;
+    border: none;
+    width: 0px;
+    height: 0px;
+    left: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .header__center {
+    display: none;
+  }
+
+  .header__userProfile p {
+    display: none;
+  }
+}

@@ -26,11 +26,9 @@ const Product = ({ product }) => {
               <h2 className="product__title">{product.volumeInfo.title}</h2>
             </Link>
             {product.volumeInfo.authors ? (
-              product.volumeInfo.authors?.map((author) => (
-                <div key={author} className="product__author">
-                  {author},
-                </div>
-              ))
+              <div className="product__author">
+                {product.volumeInfo.authors[0]}
+              </div>
             ) : (
               <div className="product__author">Unknown</div>
             )}
@@ -47,9 +45,8 @@ const Product = ({ product }) => {
               {product.saleInfo.saleability === "NOT_FOR_SALE" ? null : (
                 <div className="btn__cart">
                   <ShoppingCartOutlinedIcon
-                    style={{ color: "white" }}
-                    fontSize="small"
                     onClick={handleAddToCart}
+                    className="product__iconCart"
                   />
                 </div>
               )}

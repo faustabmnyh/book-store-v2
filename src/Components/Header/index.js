@@ -112,7 +112,6 @@ const Header = () => {
             </div>
           ) : (
             <>
-              {" "}
               <div className="header__auth">
                 <Link to="/signin">
                   <button className="header__signin">Sign In</button>
