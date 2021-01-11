@@ -21,13 +21,20 @@ const Home = () => {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <div className="home__product">
-          {products?.map((product) =>
-            product.saleInfo.saleability === "NOT_FOR_SALE" ? null : (
-              <Product key={product.id} product={product} />
-            )
-          )}
-        </div>
+        <>
+          <img
+            src="/images/background/back.png"
+            alt="bubble"
+            className="home__back"
+          />
+          <div className="home__product">
+            {products?.map((product) =>
+              product.saleInfo.saleability === "NOT_FOR_SALE" ? null : (
+                <Product key={product.id} product={product} />
+              )
+            )}
+          </div>
+        </>
       )}
       {/* <RecommendProduct /> */}
     </>

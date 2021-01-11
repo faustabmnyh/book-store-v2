@@ -7,6 +7,10 @@
   font-family: "Quicksand", sans-serif;
 }
 
+.detailProducts__container h1 {
+  font-size: 28px;
+}
+
 .detailProducts__container {
   background: white;
   padding: 1.2rem;
@@ -41,7 +45,7 @@
 
 @media (max-width: 1024px) {
   .detailProducts__left h1 {
-    font-size: 28px;
+    font-size: 26px;
   }
 }
 
@@ -90,7 +94,29 @@
   .detailProducts__left h1 {
     font-size: 18px;
   }
+}
+
+@media (min-width: 2560px) {
+  .detailProducts__container {
+    border-radius: 35px;
+    padding: 3rem;
+  }
+  .detailProducts__left {
+    font-size: 30px;
+  }
+  .detailProducts__left h1 {
+    font-size: 45px;
+  }
+  .detailProducts__left h2 {
+    font-size: 35px;
+  }
+
   .detailProduct__bookInfo {
-    justify-content: center;
+    width: 100%;
+  }
+
+  .detailProducts__image {
+    width: 700px !important;
+    /* width: 100%; */
   }
 }
