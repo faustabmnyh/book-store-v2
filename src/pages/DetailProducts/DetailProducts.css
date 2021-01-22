@@ -14,7 +14,6 @@
 .detailProducts__container {
   background: white;
   padding: 1.2rem;
-  margin-top: 20px;
   border-radius: 20px;
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
   height: fit-content;
@@ -28,7 +27,7 @@
 }
 
 .detailProducts__left {
-  flex: 2 1 10rem;
+  flex: 2 1 30rem;
 }
 .detailProducts__right {
   flex: 1 1 20rem;
@@ -85,6 +84,15 @@
 }
 
 @media (max-width: 425px) {
+  .detailProduct {
+    padding: -2rem;
+    width: 100%;
+  }
+
+  .detailProducts__container {
+    margin: -10px;
+    margin-bottom: 30px;
+  }
   .detailProducts__right {
     min-width: 0;
   }
@@ -96,9 +104,13 @@
   }
 }
 
-@media (min-width: 2560px) {
+@media (min-width: 2000px) {
+  .detailProduct {
+    padding-top: 4rem;
+  }
   .detailProducts__container {
     border-radius: 35px;
+    margin: 20px;
     padding: 3rem;
   }
   .detailProducts__left {
@@ -112,11 +124,15 @@
   }
 
   .detailProduct__bookInfo {
-    width: 100%;
+    width: 100% !important;
   }
 
   .detailProducts__image {
-    width: 700px !important;
-    /* width: 100%; */
+    max-width: 300px;
+    object-fit: contain !important;
+  }
+
+  .detailProducts__right {
+    min-width: 600px;
   }
 }

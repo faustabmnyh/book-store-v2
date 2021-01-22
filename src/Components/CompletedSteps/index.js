@@ -39,7 +39,7 @@ const CompletedSteps = ({
           <div className="completedSteps__textTwo">Shipping</div>
         </div>
       </Link>
-      <Link to="/paymentmethods">
+      <Link to="/payment">
         <div>
           <div className="completedSteps__content">
             <div
@@ -62,7 +62,7 @@ const CompletedSteps = ({
         >
           4
         </div>
-        <div className="completedSteps__textFive">Success Order</div>
+        <div className="completedSteps__textFour">Success Order</div>
       </div>
     </div>
   );

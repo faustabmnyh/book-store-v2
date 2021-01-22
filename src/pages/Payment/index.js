@@ -17,9 +17,9 @@ const Payment = () => {
     history.push("/shipping");
   }
   return (
-    <div>
+    <div className="payment">
       <CompletedSteps stepOne stepTwo stepThree />
-      <div className="payment">
+      <div className="payment__content">
         <div className="payment__left">
           <ul>
             <div className="payment__container">
@@ -45,12 +45,13 @@ const Payment = () => {
                   {cart.cartItems.map((cartItem) => (
                     <li key={cartItem.id}>
                       <div className="payment__card">
+                        <img
+                          src={cartItem.image}
+                          alt={cartItem.title}
+                          className="payment__cardImg"
+                        />
+
                         <div className="payment__cardBook">
-                          <img
-                            src={cartItem.image}
-                            alt={cartItem.title}
-                            className="payment__cardImg"
-                          />
                           <div className="payment__cardTitle">
                             <Link
                               className="payment__titleText"
@@ -59,10 +60,12 @@ const Payment = () => {
                               {cartItem.title}
                             </Link>
                           </div>
-                        </div>
-                        <div>
-                          IDR {currency(cartItem.price)} x {cartItem.qty} = IDR{" "}
-                          {currency(cartItem.qty * cartItem.price)}
+                          <div>
+                            IDR {currency(cartItem.price)} x {cartItem.qty} ={" "}
+                            <strong>
+                              IDR {currency(cartItem.qty * cartItem.price)}
+                            </strong>
+                          </div>
                         </div>
                       </div>
                     </li>

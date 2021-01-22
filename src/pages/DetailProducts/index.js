@@ -31,13 +31,11 @@ const DetailProduct = () => {
             <div className="detailProducts__left">
               <h1>{product.volumeInfo?.title}</h1>
               <div className="detailProduct__bookInfo">
-                <div>
-                  <img
-                    alt={product.volumeInfo?.title}
-                    src={product.volumeInfo.imageLinks.thumbnail}
-                    className="detailProducts__image"
-                  />
-                </div>
+                <img
+                  alt={product.volumeInfo?.title}
+                  src={product.volumeInfo.imageLinks.thumbnail}
+                  className="detailProducts__image"
+                />
                 <div>
                   <BookInformations product={product} />
                 </div>

@@ -4,18 +4,10 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import SearchIcon from "@material-ui/icons/Search";
 import "./Header.css";
 import { useDispatch, useSelector } from "react-redux";
-import { Avatar, makeStyles } from "@material-ui/core";
+import { Avatar } from "@material-ui/core";
 import { signout } from "../../actions/userActions";
 
-const useStyles = makeStyles((theme) => ({
-  small: {
-    width: theme.spacing(4),
-    height: theme.spacing(4),
-  },
-}));
-
 const Header = () => {
-  const classes = useStyles();
   const [titleBook, setTitleBook] = useState("");
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -39,7 +31,7 @@ const Header = () => {
           <Link to="/">
             <img
               className="header__logo"
-              src="/images/pictures/store.png"
+              src="/images/pictures/store.svg"
               alt=""
             />
           </Link>
@@ -95,7 +87,7 @@ const Header = () => {
                 <Avatar
                   alt="girls"
                   src="/images/pictures/avatar.jpg"
-                  className={classes.small}
+                  className="header__avatar"
                 />
                 <p>{userInfo.username}</p>
               </div>

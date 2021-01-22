@@ -18,7 +18,7 @@ const Footer = () => {
             <a href="!#">Contact Us</a>
           </div>
           <div className="footer__inner">
-            <img alt="mgBooks" src="/images/pictures/store.png" />
+            <img alt="mgBooks" src="/images/pictures/store.svg" />
           </div>
         </div>
         <p className="footer__botAlone">mgBooks Indonesia</p>

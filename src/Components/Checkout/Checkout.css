@@ -1,3 +1,5 @@
+
+
 .checkout__shipSubtitle {
   font-size: 12px;
   color: gray;
@@ -135,6 +137,10 @@
   font-weight: bolder;
 }
 
+.checkout__counterIcon {
+  font-size: 15px !important;
+}
+
 @media (max-width: 600px) {
   .checkout {
     font-size: 14px;
@@ -157,5 +163,82 @@
   .checkout__BtnBuy:disabled,
   .checkout__BtnCart:disabled {
     height: 30px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .checkout__shipImg {
+    font-size: 40px !important;
+  }
+  .checkout__shipTitle {
+    font-size: 40px;
+  }
+
+  .checkout__counterTitle {
+    font-size: 28px;
+  }a
+
+  .checkout__price {
+    font-size: 35px;
+  }
+
+  .checkout__shipSubtitle {
+    font-size: 22px;
+  }
+
+  .checkout__BtnCart,
+  .checkout__BtnBuy {
+    margin-top: 25px;
+    height: 65px;
+    border-radius: 35px;
+    font-size: 22px;
+  }
+
+  .checkout__BtnBuy {
+    margin-top: 1rem;
+  }
+
+  .checkout__BtnBuy:disabled,
+  .checkout__BtnCart:disabled {
+    margin-top: 25px;
+    height: 65px;
+    border-radius: 35px;
+    font-size: 22px;
+  }
+
+  .checkout__btnIcon {
+    font-size: 35px !important;
+    margin-left: 20px;
+  }
+
+  .checkout__counterInput {
+    margin: 20px 0px 30px 0px;
+  }
+
+  .checkout__counter {
+    margin: 20px 0px;
+  }
+
+  .checkout_counterQuantity {
+    width: 150px;
+    height: 42px;
+    font-size: 30px;
+    line-height: 50px;
+    border: none;
+  }
+
+  .checkout__counterBtnMinus,
+  .checkout__counterBtnPlus {
+    width: 42px;
+    height: 42px;
+  }
+  .checkout__counterBtnMinus:disabled,
+  .checkout__counterBtnPlus:disabled {
+    width: 42px;
+    height: 42px;
+  }
+
+  .checkout__counterIcon {
+    font-size: 28px !important;
   }
 }

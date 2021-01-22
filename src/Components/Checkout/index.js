@@ -48,7 +48,7 @@ const Checkout = ({ product }) => {
             }
             onClick={() => setQty(qty <= 1 ? 1 : qty - 1)}
           >
-            <RemoveIcon style={{ fontSize: "15px" }} />
+            <RemoveIcon className="checkout__counterIcon" />
           </button>
           <p className="checkout_counterQuantity">
             {product.saleInfo.saleability === "NOT_FOR_SALE" ? 0 : qty}
@@ -58,7 +58,7 @@ const Checkout = ({ product }) => {
             disabled={product.saleInfo.saleability === "NOT_FOR_SALE"}
             onClick={() => setQty(qty + 1)}
           >
-            <AddIcon style={{ fontSize: "15px" }} />
+            <AddIcon className="checkout__counterIcon" />
           </button>
         </div>
       </div>
@@ -69,7 +69,7 @@ const Checkout = ({ product }) => {
           disabled={product.saleInfo.saleability === "NOT_FOR_SALE"}
         >
           <div className="checkout__imageBtn">
-            <LocalGroceryStoreIcon />
+            <LocalGroceryStoreIcon className="checkout__btnIcon" />
           </div>
           <div className="checkout__btnCartName">Add To Cart</div>
         </button>
@@ -79,7 +79,7 @@ const Checkout = ({ product }) => {
           onClick={handleBuyNow}
         >
           <div className="checkout__imageBtn">
-            <CreditCardIcon />
+            <CreditCardIcon className="checkout__btnIcon" />
           </div>
           <div className="checkout__btnBuyName">Buy Now</div>
         </button>

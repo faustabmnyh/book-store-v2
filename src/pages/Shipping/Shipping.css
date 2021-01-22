@@ -8,6 +8,7 @@
   border-radius: 20px;
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
   flex-direction: column;
+  box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
 }
 
@@ -48,4 +49,86 @@
   font-weight: 700;
   letter-spacing: 2px;
   box-shadow: 0px 5px 10px rgba(255, 72, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .shipping__container h1 {
+    font-size: 28px;
+  }
+
+  .shipping__container label {
+    font-size: 16px;
+  }
+
+  .shipping__container form input {
+    height: 40px;
+  }
+
+  .shipping__btn {
+    height: 30px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 425px) {
+  .shipping__container h1 {
+    font-size: 25px;
+  }
+
+  .shipping__container label {
+    font-size: 15px;
+  }
+
+  .shipping__container form input {
+    font-size: 15px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 320px) {
+  .shipping__container h1 {
+    font-size: 22px;
+  }
+
+  .shipping__container label {
+    font-size: 14px;
+  }
+
+  .shipping__container form input {
+    font-size: 14px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .shipping__container {
+    max-width: 70rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .shipping {
+    margin-top: 6rem;
+  }
+  .shipping__container {
+    max-width: 130rem;
+    padding: 2rem;
+    border-radius: 30px;
+  }
+  .shipping__container h1 {
+    font-size: 50px;
+  }
+  .shipping__container label {
+    font-size: 32px;
+  }
+  .shipping__container form input {
+    font-size: 32px;
+    height: 75px;
+    text-indent: 15px;
+  }
+
+  .shipping__btn {
+    height: 60px;
+    font-size: 25px;
+  }
 }

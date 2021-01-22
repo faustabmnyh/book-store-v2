@@ -66,6 +66,12 @@ img.medium {
     width: 100%;
   }
 }
+@media (min-width: 2560px) {
+  img.medium {
+    max-width: 300px;
+    width: 100%;
+  }
+}
 
 .product span {
   color: #f0c040;
@@ -101,6 +107,27 @@ ul {
   .btn__cart {
     width: 30px;
     height: 30px;
+  }
+}
+@media (max-width: 425px) {
+  .btn__cart {
+    border-radius: 10px;
+    width: 25px;
+    height: 25px;
+  }
+}
+@media (min-width: 1440px) {
+  .btn__cart {
+    border-radius: 15px;
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (min-width: 2560px) {
+  .btn__cart {
+    border-radius: 24px;
+    width: 65px;
+    height: 65px;
   }
 }
 

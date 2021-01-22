@@ -274,6 +274,11 @@
   display: block;
 }
 
+.header__avatar {
+  width: 30px !important;
+  height: 30px !important;
+}
+
 @media (max-width: 700px) {
   .header__category {
     display: none;
@@ -304,5 +309,141 @@
 
   .header__userProfile p {
     display: none;
+  }
+}
+
+@media (min-width: 2000px) {
+  .header {
+    height: 120px;
+    box-shadow: 4px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+  .header__logo {
+    max-width: 300px;
+    padding: 2rem;
+  }
+
+  .header__searchInput {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    height: 70px;
+    width: 100%;
+    outline: none;
+    font-size: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding-left: 10px;
+  }
+
+  .header__searchIcon {
+    cursor: pointer;
+    padding: 5px;
+    object-fit: contain;
+    display: flex;
+    align-self: center;
+    color: white;
+  }
+
+  .header__seacrhMainIcon {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    width: 80px;
+    height: 70px;
+    background: #ff4800;
+    margin-right: 10px;
+  }
+
+  .header__searchIcon {
+    font-size: 50px !important;
+  }
+
+  .header__category {
+    font-size: 22px;
+    margin: 0 20px;
+  }
+  .header__categoryTitle {
+    font-size: 22px;
+  }
+
+  .header__cart {
+    margin: 0 20px 0 0;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  .header__cartIcon {
+    padding: 4px 5px;
+    border-radius: 10px;
+    font-size: 45px !important;
+  }
+  .header__cartIcon:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .header__cartNumber {
+    position: absolute;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 28px;
+    width: 28px;
+    height: 28px;
+    background-color: #ff4800;
+    top: -8px;
+    right: -4px;
+    color: white;
+  }
+  .header__userProfileDropdown {
+    margin-right: 20px;
+  }
+  .header__userProfileDropdown p {
+    font-size: 30px;
+  }
+
+  .header__avatar {
+    width: 60px !important;
+    height: 60px !important;
+    margin-right: 10px;
+  }
+
+  .header__userProfile::after {
+    border-left: 2px solid #ff480038;
+    width: 20px;
+    height: 60px;
+  }
+
+  .header__categoryTitle:hover {
+    border-radius: 10px;
+  }
+
+  .header__categoryDropdown {
+    top: 52px;
+    left: -10px;
+    border-radius: 20px;
+  }
+
+  .dropdown__item li {
+    padding: 16px 60px 16px 40px;
+  }
+  .dropdown__link {
+    font-size: 25px;
+  }
+
+  .header__userProfileDropdown {
+    display: inline-block;
+    position: relative;
+    color: gray;
+  }
+  .header__dropdownContent {
+    min-width: 200px;
+    top: 60px;
+    left: -20px;
+    border-radius: 20px;
+    font-size: 25px;
+  }
+
+  .header__dropdownContent li {
+    padding: 16px 60px 16px 40px;
   }
 }

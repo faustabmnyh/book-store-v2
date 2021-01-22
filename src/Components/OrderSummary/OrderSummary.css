@@ -15,12 +15,31 @@
   color: white;
   border-radius: 30px;
   background: #ff4800;
-  text-transform: uppercase;
   font-family: "Quicksand", sans-serif;
   border: none;
   margin: 10px 0 0 0;
   cursor: pointer;
   font-weight: 700;
-  letter-spacing: 2px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 425px) {
+  .orderSummary__btn {
+    height: 30px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  .orderSummary h2 {
+    font-size: 40px;
+  }
+
+  .orderSummary__btn {
+    height: 60px;
+    border-radius: 30px;
+    font-size: 1.8rem;
+    margin-top: 20px;
+  }
 }

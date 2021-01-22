@@ -1,7 +1,8 @@
-.payment {
+.payment__content {
   display: flex;
   font-family: "quicksand";
   justify-content: space-between;
+  flex-wrap: wrap-reverse;
 }
 
 .payment__container {
@@ -9,14 +10,15 @@
   padding: 1.2rem;
   margin-top: 20px;
   border-radius: 20px;
+  box-sizing: border-box;
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
 }
 .payment__left {
   margin-right: 20px;
-  flex: 0.7;
+  flex: 2 1 30rem;
 }
 .payment__right {
-  flex: 0.3;
+  flex: 1 1 20rem;
 }
 
 .payment h2 {
@@ -32,6 +34,8 @@
 }
 
 .payment__cardBook {
+  width: 100%;
+  justify-content: space-between;
   align-items: center;
   display: flex;
 }
@@ -41,4 +45,58 @@
   width: 100%;
   border-radius: 20px;
   margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .payment__left {
+    margin-right: 0;
+    margin-top: 30px;
+  }
+  .payment__cardBook {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 425px) {
+  .payment h2 {
+    font-size: 18px;
+  }
+
+  .payment__card {
+    flex-wrap: wrap;
+  }
+
+  .payment__cardBook {
+    margin-top: 20px;
+  }
+
+  .payment__container {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .payment {
+    padding: 6rem;
+  }
+
+  .payment h2 {
+    font-size: 40px;
+  }
+
+  .payment__left {
+    margin-right: 30px;
+  }
+
+  .payment__container {
+    padding: 2rem;
+    margin-top: 40px;
+    font-size: 30px;
+    border-radius: 30px;
+  }
+
+  .payment__cardImg {
+    max-width: 10rem;
+    border-radius: 35px;
+  }
 }

@@ -25,8 +25,8 @@ const Cart = () => {
     <div className="cart">
       <div className="cart__left">
         <h1 className="cart__title">
-          Shopping Cart{" "}
-          <ShoppingCartIcon style={{ fontSize: "30px", marginLeft: "10px" }} />
+          Shopping Cart
+          <ShoppingCartIcon className="cart__cartIcon" />
         </h1>
         <hr />
         {cartItems.length === 0 ? (
@@ -47,13 +47,15 @@ const Cart = () => {
                   </div>
                   <div className="cart__cardText">
                     <div className="cart__textHeader">
-                      <h2 className="cart__cardTitle">
-                        <Link
-                          className="cart__titleText"
-                          to={`product/${cartItem.id}`}
-                        >
-                          {cartItem.title}
-                        </Link>
+                      <div className="cart__cardTitle">
+                        <h2>
+                          <Link
+                            className="cart__titleText"
+                            to={`product/${cartItem.id}`}
+                          >
+                            {cartItem.title}
+                          </Link>
+                        </h2>
                         <span>
                           {cartItem.authors?.map((author) => (
                             <div key={author}>
@@ -64,7 +66,12 @@ const Cart = () => {
                             </div>
                           ))}
                         </span>
-                      </h2>
+                        <div className="cart__cardPrice responsive">
+                          {cartItem.price !== 0
+                            ? `IDR ${currency(cartItem.price)}`
+                            : "FREE"}
+                        </div>
+                      </div>
                       <div className="cart__cardPrice">
                         {cartItem.price !== 0
                           ? `IDR ${currency(cartItem.price)}`
@@ -83,7 +90,7 @@ const Cart = () => {
                                 : "cart__counterBtnMinus"
                             }
                           >
-                            <RemoveIcon style={{ fontSize: "15px" }} />
+                            <RemoveIcon className="cart__counterIcon" />
                           </button>
                           <div className="cart_counterQuantity">
                             {cartItem.qty}
@@ -92,7 +99,7 @@ const Cart = () => {
                             onClick={() => dispatch(plusCount(cartItem.id))}
                             className="cart__counterBtnPlus"
                           >
-                            <AddIcon style={{ fontSize: "15px" }} />
+                            <AddIcon className="cart__counterIcon" />
                           </button>
                         </div>
                       </div>
@@ -101,7 +108,7 @@ const Cart = () => {
                           onClick={() => handleDelete(cartItem.id)}
                           className="cart__cardBtn"
                         >
-                          <DeleteIcon fontSize="small" />
+                          <DeleteIcon className="cart__deleteIcon" />
                           <p>Delete</p>
                         </div>
                       </div>
