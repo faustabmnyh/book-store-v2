@@ -22,7 +22,7 @@ const CompletedPaymentSummary = ({ order, id }) => {
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.src = `https://www.paypal.com/sdk/js?client-id=${
-        process.env.REACT_APP_PAYPAL_CLIENT_ID || "sb"
+        process.env.PAYPAL_CLIENT_ID || "sb"
       }`;
       script.async = true;
       script.onload = () => {

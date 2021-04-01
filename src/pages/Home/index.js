@@ -4,7 +4,6 @@ import { listProducts } from "../../actions/productActions";
 import LoadingBox from "../../Components/LoadingBox";
 import MessageBox from "../../Components/MessageBox";
 import Product from "../../Components/Product";
-import RecommendProduct from "../../Components/RecommendProduct";
 import "./Home.css";
 
 const Home = () => {
