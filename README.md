@@ -34,4 +34,6 @@ I build this with the following features, shopping cart, payment using PayPal, o
 
 #### - Payment Page
 
+Note: This is just a test payment not a real payment
+
 ![Cart Page Image](./public/images/pictures/preview8.png)
