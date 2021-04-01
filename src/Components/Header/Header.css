@@ -116,8 +116,22 @@
   font-weight: bold;
   font-size: 14px;
   outline: none;
+  background: #ff4800;
+  color: white;
   font-family: "Quicksand", sans-serif;
   box-shadow: 0px 5px 10px rgba(255, 72, 0, 0.1);
+}
+
+.header__signin {
+  width: 60px;
+  height: 35px;
+  margin-right: 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  background: white;
+  font-family: "Quicksand", sans-serif;
 }
 
 .header__auth {
@@ -157,22 +171,7 @@
   padding: 0.3rem;
 }
 
-.header__signup {
-  background: #ff4800;
-  color: white;
-}
 
-.header__signin {
-  width: 60px;
-  height: 35px;
-  margin-right: 20px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  background: white;
-  font-family: "Quicksand", sans-serif;
-}
 
 .header__signin:hover {
   color: #ff4800;
@@ -446,4 +445,23 @@
   .header__dropdownContent li {
     padding: 16px 60px 16px 40px;
   }
+
+  
+.header__signup {
+  width: 150px;
+  height: 60px;
+  margin-right: 30px;
+  border-radius: 10px;
+  font-size: 25px;
+}
+
+.header__signin {
+  width: 120px;
+  height: 60px;
+  margin-right: 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+}
 }

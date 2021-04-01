@@ -16,7 +16,7 @@ const Product = ({ product }) => {
         <Link to={`/product/${product.id}`}>
           <img
             className="product__image medium"
-            src={product.volumeInfo.imageLinks.thumbnail}
+            src={product.volumeInfo.imageLinks?.thumbnail}
             alt="books"
           />
         </Link>

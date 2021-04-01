@@ -51,3 +51,23 @@
   max-width: 300px;
   width: 100%;
 }
+
+@media (min-width: 2000px) {
+  .footer__title {
+    font-size: 35px;
+  }
+
+  .footer__inner a {
+    font-size: 23px;
+  }
+
+  .footer__botAlone {
+    font-size: 20px;
+  }
+
+  .footer__inner img {
+    object-fit: contain;
+    max-width: 500px;
+    width: 100%;
+  }
+}
