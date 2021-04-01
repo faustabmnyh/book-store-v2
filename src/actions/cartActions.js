@@ -7,6 +7,7 @@ import {
 } from "../constants/cartConstants";
 
 export const addToCart = (product, qty) => async (dispatch, getState) => {
+  console.log(product);
   dispatch({
     type: ADD_TO_CART,
     payload: {
@@ -16,8 +17,8 @@ export const addToCart = (product, qty) => async (dispatch, getState) => {
         ? product.volumeInfo.authors
         : ["DONT KNOW"] || product.authors,
       price: product?.saleInfo?.listPrice?.amount
-        ? product.saleInfo.listPrice?.amount
-        : 0 || product.price,
+        ? product?.saleInfo.listPrice?.amount
+        : 0,
       image: product?.volumeInfo?.imageLinks?.thumbnail || product.image,
       qty,
     },
