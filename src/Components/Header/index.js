@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import SearchIcon from "@material-ui/icons/Search";
@@ -24,54 +24,54 @@ const Header = () => {
   const handleCategory = (e) => {
     history.push(`/category/${e.target.id}`);
   };
+
+  // navmobile
+  const navMobile = useRef(null);
+  const handleNavMobile = () => {
+    if (window.innerWidth <= 768) {
+      navMobile.current.classList.toggle("show");
+    }
+  };
   return (
     <header>
       <div className="header">
-        <div>
-          <Link to="/">
-            <img
-              className="header__logo"
-              src="/images/pictures/store.svg"
-              alt=""
-            />
-          </Link>
-        </div>
-        <div className="header__center" onSubmit={handleSearch}>
-          <form className="header__search">
-            <input
-              placeholder="Search..."
-              className="header__searchInput"
-              type="text"
-              onChange={(e) => setTitleBook(e.target.value)}
-            />
-            <button className="header__seacrhMainIcon" type="submit">
-              <SearchIcon className="header__searchIcon" />
-            </button>
-          </form>
-        </div>
+        <Link to="/">
+          <img
+            className="header__logo"
+            src="/images/pictures/store.svg"
+            alt=""
+          />
+        </Link>
+        <form className="header__search" onSubmit={handleSearch}>
+          <input
+            placeholder="Search..."
+            className="header__searchInput"
+            type="text"
+            onChange={(e) => setTitleBook(e.target.value)}
+          />
+          <button className="header__seacrhMainIcon" type="submit">
+            <SearchIcon className="header__searchIcon" />
+          </button>
+        </form>
         <div className="header__right">
           <div className="header__category">
-            <div className="header__categoryMain">
-              <p className="header__categoryTitle">Category</p>
-              <div className="header__categoryDropdown">
-                <ul className="dropdown__item">
-                  <li
-                    id="books"
-                    onClick={handleCategory}
-                    className="dropdown__link"
-                  >
-                    Books
-                  </li>
-                  <li
-                    id="magazines"
-                    onClick={handleCategory}
-                    className="dropdown__link"
-                  >
-                    Magazines
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <p className="header__categoryTitle">Category</p>
+            <ul className="header__categoryDropdown">
+              <li
+                id="books"
+                onClick={handleCategory}
+                className="dropdown__link"
+              >
+                Books
+              </li>
+              <li
+                id="magazines"
+                onClick={handleCategory}
+                className="dropdown__link"
+              >
+                Magazines
+              </li>
+            </ul>
           </div>
           <Link to="/cart">
             <div className="header__cart">
@@ -83,7 +83,7 @@ const Header = () => {
           </Link>
           {userInfo ? (
             <div className="header__userProfileDropdown">
-              <div className="header__userProfile">
+              <div className="header__userProfile" onClick={handleNavMobile}>
                 <Avatar
                   alt="girls"
                   src="/images/pictures/avatar.jpg"
@@ -116,6 +116,30 @@ const Header = () => {
           )}
         </div>
       </div>
+
+      <ul
+        className="header__navMobile"
+        ref={navMobile}
+        onClick={handleNavMobile}
+      >
+        <h4>Profile</h4>
+        <li>
+          <Link to="/signin" onClick={handleSignout}>
+            Sign Out
+          </Link>
+        </li>
+        <h4>Shop</h4>
+        <li>
+          <Link to="/orderhistory">Order History</Link>
+        </li>
+        <h4>Category</h4>
+        <li id="books" onClick={handleCategory}>
+          Books
+        </li>
+        <li id="magazines" onClick={handleCategory}>
+          Magazines
+        </li>
+      </ul>
     </header>
   );
 };

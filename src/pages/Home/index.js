@@ -30,7 +30,7 @@ const Home = () => {
 
           <div className="home__product">
             {products?.map((product) =>
-              // product.saleInfo.saleability === "NOT_FOR_SALE" ? null : 
+              product.saleInfo.saleability === "NOT_FOR_SALE" ? null : 
               (
                 <Product key={product.id} product={product} />
               )

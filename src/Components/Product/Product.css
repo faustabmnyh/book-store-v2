@@ -56,7 +56,6 @@ backdrop-filter: blur(20px); */
 .product__price {
   margin-right: 10px;
   font-size: clamp(.9rem, 0.75vw, 1.6rem);
-
 }
 
 .product__iconCart {
