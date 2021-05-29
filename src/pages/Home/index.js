@@ -13,6 +13,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(listProducts({}));
   }, [dispatch]);
+
   return (
     <>
       {loading ? (
@@ -20,20 +21,22 @@ const Home = () => {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <>
+        <div className="home">
           <img
             src="/images/background/back.png"
             alt="bubble"
             className="home__back"
           />
+
           <div className="home__product">
             {products?.map((product) =>
-              product.saleInfo.saleability === "NOT_FOR_SALE" ? null : (
+              // product.saleInfo.saleability === "NOT_FOR_SALE" ? null : 
+              (
                 <Product key={product.id} product={product} />
               )
             )}
           </div>
-        </>
+        </div>
       )}
       {/* <RecommendProduct /> */}
     </>
