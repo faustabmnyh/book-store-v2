@@ -6,10 +6,6 @@
 }
 
 .home__product {
-  grid-template-columns: repeat(2, minmax(9em, auto));
-  display: grid;
-  place-items: center;
-  gap: 1rem;
   margin-bottom: 2rem;
   padding-top: 10em;
   box-sizing: border-box;
@@ -33,30 +29,10 @@
 @media (min-width: 750px) {
   .home__product {
     padding: 0 4em;
-    grid-template-columns: repeat(3, minmax(10em, auto));
-    gap: 2rem;
     padding-top: 10em;
   }
 
   .home__back {
     height: 400px;
-  }
-}
-
-@media (min-width: 1000px) {
-  .home__product {
-    grid-template-columns: repeat(4, minmax(10em, auto));
-  }
-}
-
-@media (min-width: 1440px){
-  .home__product {
-    grid-template-columns: repeat(5, minmax(10em, auto));
-  }
-}
-
-@media (min-width: 1900px){
-  .home__product {
-    grid-template-columns: repeat(6, minmax(10em, auto));
   }
 }

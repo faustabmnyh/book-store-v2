@@ -1,11 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
-import { addToCart } from "../../actions/cartActions";
+import { useParams } from "react-router-dom";
 import { listCategoryProduct } from "../../actions/productActions";
-import { currency } from "../../Components/Currency";
 import LoadingBox from "../../Components/LoadingBox";
 import MessageBox from "../../Components/MessageBox";
+import Product from "../../Components/Product";
 import "./CategoryPage.css";
 
 const CategoryPage = () => {
@@ -23,60 +22,14 @@ const CategoryPage = () => {
   ) : (
     <div className="categoryPage">
       <h1 className>{category}</h1>
-      <div className="categoryPage__content">
+      <div className="categoryPage__content container">
         {products.map((product) => (
-          <div
-            className={
-              category === "books"
-                ? "categoryPage__container"
-                : "categoryPage__container magazines"
-            }
-          >
-            <div>
-              <Link to={`/product/${product.id}`}>
-                <img
-                  src={product.volumeInfo.imageLinks?.thumbnail}
-                  alt={product.volumeInfo.title}
-                  className="categoryPage__image"
-                />
-              </Link>
-              <Link to={`/product/${product.id}`}>
-                <h2>{product.volumeInfo.title}</h2>
-              </Link>
-              <div className="categoryPage__authors">
-                {product.volumeInfo?.authors ? (
-                  product.volumeInfo.authors?.map((author) => (
-                    <div key={author}>{author}</div>
-                  ))
-                ) : (
-                  <div>Unknown</div>
-                )}
-              </div>
-            </div>
-            <div className="categoryPage__btnContainer">
-              <strong>
-                {product.saleInfo.listPrice?.amount
-                  ? `IDR ${currency(product.saleInfo.listPrice?.amount)}`
-                  : product.saleInfo.saleability === "NOT_FOR_SALE"
-                  ? "NOT FOR SALE"
-                  : "FREE"}
-              </strong>
-              <div>
-                {product.saleInfo.saleability === "NOT_FOR_SALE" ? null : (
-                  <button
-                    onClick={() => dispatch(addToCart(product, 1))}
-                    className="categoryPage__btn"
-                  >
-                    Add To Cart
-                  </button>
-                )}
-              </div>
-            </div>
-          </div>
+          <Product product={product} key={product.id} />
         ))}
       </div>
     </div>
   );
 };
+
 
 export default CategoryPage;

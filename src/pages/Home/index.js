@@ -28,10 +28,9 @@ const Home = () => {
             className="home__back"
           />
 
-          <div className="home__product">
+          <div className="home__product container">
             {products?.map((product) =>
-              product.saleInfo.saleability === "NOT_FOR_SALE" ? null : 
-              (
+              product.saleInfo.saleability === "NOT_FOR_SALE" ? null : (
                 <Product key={product.id} product={product} />
               )
             )}

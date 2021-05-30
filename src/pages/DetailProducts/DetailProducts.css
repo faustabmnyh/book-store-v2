@@ -40,7 +40,7 @@
   border-radius: 20px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
-
+/* 
 @media (max-width: 1024px) {
   .detailProducts__left h1 {
     font-size: 26px;
@@ -134,4 +134,4 @@
   .detailProducts__right {
     min-width: 600px;
   }
-}
+} */

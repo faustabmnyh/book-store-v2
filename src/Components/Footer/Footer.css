@@ -9,14 +9,17 @@
   margin-bottom: 20px;
   font-weight: 600;
   color: rgb(46, 46, 46);
+  font-size: clamp(1.2rem, 1.5vw, 2rem);
   text-transform: uppercase;
 }
 
 .footer__botAlone {
   margin-top: 30px;
   color: rgb(46, 46, 46);
-  font-size: 12px;
+  /* font-size: 12px; */
   font-weight: bold;
+  font-size: clamp(0.8rem, 0.75vw, 1.05rem);
+
 }
 
 .footer__container {
@@ -37,7 +40,9 @@
   flex-direction: column;
   text-decoration: none;
   color: #757575;
-  font-size: 14px;
+  /* font-size: 14px; */
+  font-size: clamp(0.8rem, 0.75vw, 1.05rem);
+
   margin-bottom: 15px;
 }
 
@@ -52,22 +57,3 @@
   width: 100%;
 }
 
-@media (min-width: 2000px) {
-  .footer__title {
-    font-size: 35px;
-  }
-
-  .footer__inner a {
-    font-size: 23px;
-  }
-
-  .footer__botAlone {
-    font-size: 20px;
-  }
-
-  .footer__inner img {
-    object-fit: contain;
-    max-width: 500px;
-    width: 100%;
-  }
-}

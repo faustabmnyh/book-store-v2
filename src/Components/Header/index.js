@@ -20,9 +20,15 @@ const Header = () => {
   };
   const handleSearch = () => {
     history.push(`/search/${titleBook}`);
+    if (window.innerWidth <= 768) {
+      navMobile.current.classList.remove("show");
+    }
   };
   const handleCategory = (e) => {
     history.push(`/category/${e.target.id}`);
+    if (window.innerWidth <= 768) {
+      navMobile.current.classList.remove("show");
+    }
   };
 
   // navmobile
@@ -49,7 +55,7 @@ const Header = () => {
             type="text"
             onChange={(e) => setTitleBook(e.target.value)}
           />
-          <button className="header__seacrhMainIcon" type="submit">
+          <button className="header__searchMainIcon" type="submit">
             <SearchIcon className="header__searchIcon" />
           </button>
         </form>
@@ -117,19 +123,16 @@ const Header = () => {
         </div>
       </div>
 
-      <ul
-        className="header__navMobile"
-        ref={navMobile}
-        onClick={handleNavMobile}
-      >
+      <ul className="header__navMobile" ref={navMobile}>
         <h4>Profile</h4>
-        <li>
+        <li>{userInfo.username}</li>
+        <li onClick={handleNavMobile}>
           <Link to="/signin" onClick={handleSignout}>
             Sign Out
           </Link>
         </li>
         <h4>Shop</h4>
-        <li>
+        <li onClick={handleNavMobile}>
           <Link to="/orderhistory">Order History</Link>
         </li>
         <h4>Category</h4>
@@ -139,6 +142,17 @@ const Header = () => {
         <li id="magazines" onClick={handleCategory}>
           Magazines
         </li>
+        <form className="header__searchMobile" onSubmit={handleSearch}>
+          <input
+            placeholder="Search..."
+            className="header__searchInputMobile"
+            type="text"
+            onChange={(e) => setTitleBook(e.target.value)}
+          />
+          <button className="header__searchMainIconMobile" type="submit">
+            <SearchIcon className="header__searchIconMobile" />
+          </button>
+        </form>
       </ul>
     </header>
   );
