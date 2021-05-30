@@ -39,22 +39,7 @@
 }
 
 .header__signup {
-  width: 90px;
-  height: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 10px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 14px;
-  outline: none;
-  background: #ff4800;
-  color: white;
-  font-family: "Quicksand", sans-serif;
-  box-shadow: 0px 5px 10px rgba(255, 72, 0, 0.1);
+  display: none;
 }
 
 .header__signin {
@@ -70,8 +55,6 @@
 }
 
 .header__auth {
-  padding-left: 20px;
-  border-left: 1px solid #ff480038;
   display: flex;
 }
 
@@ -353,13 +336,38 @@
   .header__userProfileDropdown:hover .header__dropdownContent {
     display: block;
   }
+
+  /* header auth */
+  .header__auth {
+    padding-left: 20px;
+    border-left: 1px solid #ff480038;
+    display: flex;
+  }
+
+  .header__signup {
+    width: 90px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    outline: none;
+    background: #ff4800;
+    color: white;
+    font-family: "Quicksand", sans-serif;
+    box-shadow: 0px 5px 10px rgba(255, 72, 0, 0.1);
+  }
 }
 
 @media (min-width: 1800px) {
   .header__searchInput {
     padding: 1em;
   }
-
 
   /* .header__searchMainIcon {
     padding: 1em;

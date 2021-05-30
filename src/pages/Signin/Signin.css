@@ -1,6 +1,8 @@
 .signin {
   height: 100vh;
   display: flex;
+  width: 85%;
+  margin: 0 auto;
   flex-direction: column;
   align-items: center;
   font-family: "Quicksand", sans-serif;

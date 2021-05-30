@@ -125,7 +125,7 @@ const Header = () => {
 
       <ul className="header__navMobile" ref={navMobile}>
         <h4>Profile</h4>
-        <li>{userInfo.username}</li>
+        <li>{userInfo?.username}</li>
         <li onClick={handleNavMobile}>
           <Link to="/signin" onClick={handleSignout}>
             Sign Out
