@@ -1,6 +1,11 @@
 .checkout__shipSubtitle {
-  font-size: 12px;
+  font-size: clamp(0.8rem, 0.75vw, 1.05rem);
   color: gray;
+}
+
+.checkout__shipTitle,
+.checkout__price {
+  font-size: clamp(1.2rem, 1.5vw, 2rem);
 }
 
 .checkout__btn {
@@ -10,15 +15,16 @@
 .checkout__BtnCart,
 .checkout__BtnBuy {
   width: 100%;
-  height: 35px;
   font-family: "Quicksand", sans-serif;
   color: white;
-  border-radius: 30px;
   background: #ff4800;
   border: none;
   font-weight: 700;
-  font-size: 0.8rem;
+  /* font-size: 0.8rem; */
+  font-size: clamp(0.8rem, 0.75vw, 1.05rem);
   cursor: pointer;
+  border-radius: 2em;
+  padding: 0.5em 1em;
   box-shadow: 0px 5px 10px rgba(255, 72, 0, 0.3);
 }
 .checkout__BtnCart {
@@ -51,9 +57,9 @@
   outline: none;
   border: none;
   width: 100%;
-  height: 35px;
+  border-radius: 2em;
+  padding: 0.5em 1em;
   transition: all 0.2s ease;
-  border-radius: 30px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.07);
   cursor: default;
   background: whitesmoke;
@@ -78,38 +84,40 @@
 }
 
 .checkout_counterQuantity {
-  width: 50px;
   text-align: center;
-  height: 20px;
+  padding: 0.25em 1.75em;
+  font-size: clamp(0.9rem, 0.75vw, 1.05rem);
   outline: none;
   cursor: default;
   border: none;
 }
 
 .checkout__counterBtnMinus,
-.checkout__counterBtnPlus {
+.checkout__counterBtnPlus,
+.checkout__counterBtnMinus:disabled,
+.checkout__counterBtnPlus:disabled {
   display: flex;
   align-items: center;
   justify-content: center;
   outline: none;
   border: none;
+  font-size: clamp(0.8rem, 0.75vw, 1.05rem);
   width: 23px;
+  border-radius: 50%;
   height: 23px;
+}
+
+.checkout__counterBtnMinus,
+.checkout__counterBtnPlus {
   color: white;
   transition: all 0.2s ease;
-  border-radius: 50%;
   background: #ff4800;
   cursor: pointer;
   box-shadow: 0px 5px 10px rgba(255, 72, 0, 0.3);
 }
 .checkout__counterBtnMinus:disabled,
 .checkout__counterBtnPlus:disabled {
-  outline: none;
-  border: none;
-  width: 23px;
-  height: 23px;
   transition: all 0.2s ease;
-  border-radius: 50%;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.07);
   cursor: default;
   background: whitesmoke;
@@ -117,7 +125,6 @@
 
 .checkout__price {
   margin-top: 10px;
-  font-size: 20px;
   font-weight: 500;
 }
 
@@ -137,106 +144,4 @@
 
 .checkout__counterIcon {
   font-size: 15px !important;
-}
-
-@media (max-width: 600px) {
-  .checkout {
-    font-size: 14px;
-  }
-  .checkout__shipTitle {
-    font-size: 16px;
-  }
-
-  .checkout__price {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 425px) {
-  .checkout__BtnCart,
-  .checkout__BtnBuy {
-    height: 30px;
-  }
-
-  .checkout__BtnBuy:disabled,
-  .checkout__BtnCart:disabled {
-    height: 30px;
-  }
-}
-
-@media (min-width: 2000px) {
-  .checkout__shipImg {
-    font-size: 40px !important;
-  }
-  .checkout__shipTitle {
-    font-size: 40px;
-  }
-
-  .checkout__counterTitle {
-    font-size: 28px;
-  }a
-
-  .checkout__price {
-    font-size: 35px;
-  }
-
-  .checkout__shipSubtitle {
-    font-size: 22px;
-  }
-
-  .checkout__BtnCart,
-  .checkout__BtnBuy {
-    margin-top: 25px;
-    height: 65px;
-    border-radius: 35px;
-    font-size: 22px;
-  }
-
-  .checkout__BtnBuy {
-    margin-top: 1rem;
-  }
-
-  .checkout__BtnBuy:disabled,
-  .checkout__BtnCart:disabled {
-    margin-top: 25px;
-    height: 65px;
-    border-radius: 35px;
-    font-size: 22px;
-  }
-
-  .checkout__btnIcon {
-    font-size: 35px !important;
-    margin-left: 20px;
-  }
-
-  .checkout__counterInput {
-    margin: 20px 0px 30px 0px;
-  }
-
-  .checkout__counter {
-    margin: 20px 0px;
-  }
-
-  .checkout_counterQuantity {
-    width: 150px;
-    height: 42px;
-    font-size: 30px;
-    line-height: 50px;
-    border: none;
-  }
-
-  .checkout__counterBtnMinus,
-  .checkout__counterBtnPlus {
-    width: 42px;
-    height: 42px;
-  }
-  .checkout__counterBtnMinus:disabled,
-  .checkout__counterBtnPlus:disabled {
-    width: 42px;
-    height: 42px;
-  }
-
-  .checkout__counterIcon {
-    font-size: 28px !important;
-  }
 }

@@ -27,33 +27,29 @@ const DetailProduct = () => {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div className="detailProducts__content">
-          <div className="detailProducts__container">
-            <div className="detailProducts__left">
-              <h1>{product.volumeInfo?.title}</h1>
-              <div className="detailProduct__bookInfo">
-                <img
-                  alt={product.volumeInfo?.title}
-                  src={product.volumeInfo.imageLinks.thumbnail}
-                  className="detailProducts__image"
-                />
-                <div>
-                  <BookInformations product={product} />
-                </div>
+          <div className="detailProducts__left detailProducts__container">
+            <h1>{product.volumeInfo?.title}</h1>
+            <div className="detailProduct__bookInfo">
+              <img
+                alt={product.volumeInfo?.title}
+                src={product.volumeInfo.imageLinks.thumbnail}
+                className="detailProducts__image"
+              />
+              <div>
+                <BookInformations product={product} />
               </div>
-              <div className="detailProducts__description">
-                <h2>Description :</h2>
-                <p
-                  dangerouslySetInnerHTML={createMarkUp(
-                    product.volumeInfo?.description
-                  )}
-                ></p>
-              </div>
+            </div>
+            <div className="detailProducts__description">
+              <h2>Description :</h2>
+              <p
+                dangerouslySetInnerHTML={createMarkUp(
+                  product.volumeInfo?.description
+                )}
+              ></p>
             </div>
           </div>
-          <div className="detailProducts__container">
-            <div className="detailProducts__right">
-              <Checkout product={product} />
-            </div>
+          <div className="detailProducts__right detailProducts__container">
+            <Checkout product={product} />
           </div>
         </div>
       )}

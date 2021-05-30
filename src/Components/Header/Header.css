@@ -201,6 +201,7 @@
     width: 100%;
     padding: 0.5em;
     height: 100%;
+    font-size: clamp(0.9rem, 1.15vw, 1.3rem);
     height: 2.5rem;
     outline: none;
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -352,4 +353,15 @@
   .header__userProfileDropdown:hover .header__dropdownContent {
     display: block;
   }
+}
+
+@media (min-width: 1800px) {
+  .header__searchInput {
+    padding: 1em;
+  }
+
+
+  /* .header__searchMainIcon {
+    padding: 1em;
+  } */
 }
