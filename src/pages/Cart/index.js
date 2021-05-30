@@ -21,6 +21,13 @@ const Cart = () => {
   const handleDelete = (productId) => {
     dispatch(removeFromCart(productId));
   };
+
+  function getNameAuthor(authors) {
+    const getEachAuthor = [];
+    authors.map((author) => getEachAuthor.push(author));
+    return getEachAuthor.join(", ");
+  }
+
   return (
     <div className="cart">
       <div className="cart__left">
@@ -38,13 +45,11 @@ const Cart = () => {
             {cartItems?.map((cartItem) => (
               <>
                 <li className="cart__card" key={cartItem.id}>
-                  <div>
-                    <img
-                      src={cartItem.image}
-                      alt={cartItem.title}
-                      className="cart__cardImg"
-                    />
-                  </div>
+                  <img
+                    src={cartItem.image}
+                    alt={cartItem.title}
+                    className="cart__cardImg"
+                  />
                   <div className="cart__cardText">
                     <div className="cart__textHeader">
                       <div className="cart__cardTitle">
@@ -57,20 +62,10 @@ const Cart = () => {
                           </Link>
                         </h2>
                         <span>
-                          {cartItem.authors?.map((author) => (
-                            <div key={author}>
-                              <a href="!#" className="cart__cardAuthors">
-                                {author}
-                              </a>{" "}
-                              (author)
-                            </div>
-                          ))}
+                          {cartItem.authors.length === 0
+                            ? "Unknown"
+                            : getNameAuthor(cartItem.authors)}
                         </span>
-                        <div className="cart__cardPrice responsive">
-                          {cartItem.price !== 0
-                            ? `IDR ${currency(cartItem.price)}`
-                            : "FREE"}
-                        </div>
                       </div>
                       <div className="cart__cardPrice">
                         {cartItem.price !== 0

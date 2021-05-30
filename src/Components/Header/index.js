@@ -135,6 +135,9 @@ const Header = () => {
         <li onClick={handleNavMobile}>
           <Link to="/orderhistory">Order History</Link>
         </li>
+        <li onClick={handleNavMobile}>
+          <Link to="/cart">Cart</Link>
+        </li>
         <h4>Category</h4>
         <li id="books" onClick={handleCategory}>
           Books

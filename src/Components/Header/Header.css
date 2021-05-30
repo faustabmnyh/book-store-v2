@@ -231,7 +231,9 @@
 
   .header__cartNumber {
     position: absolute;
-    padding: 0.25em 0.5em;
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
     text-align: center;
     border-radius: 50%;
     font-size: 9px;

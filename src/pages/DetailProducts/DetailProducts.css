@@ -69,6 +69,7 @@
     margin: 0 0;
   }
 }
+
 @media (min-width: 800px) {
   .detailProducts__content {
     flex-direction: row;
