@@ -57,35 +57,3 @@ button:disabled {
     padding: 2em;
   }
 }
-/* 
-@media (max-width: 900px) {
-  .subtotal {
-    margin: 0px;
-  }
-}
-
-@media (max-width: 425px) {
-  .subtotal__text {
-    font-size: 16px;
-  }
-
-  .subtotal button {
-    height: 30px;
-  }
-}
-
-@media (min-width: 2560px) {
-  .subtotal {
-    border-radius: 35px;
-    margin-left: 40px;
-    padding: 2rem;
-  }
-  .subtotal__text {
-    font-size: 32px;
-  }
-
-  .subtotal button {
-    height: 60px;
-    font-size: 25px;
-  }
-} */

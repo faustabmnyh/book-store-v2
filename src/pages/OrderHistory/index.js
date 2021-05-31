@@ -41,20 +41,16 @@ const OrderHistory = () => {
           orders.map((order) => (
             <div className="orderHistory__content" key={order.id}>
               <div className="orderHistory__container">
-                <div>
-                  <ul className="orderHistory__header">
-                    <li>
-                      <p className="orderHistory__orderAt">
-                        {moment(order.data.orderAt).format(
-                          "MMMM do YYYY, h:mma"
-                        )}
-                      </p>
-                    </li>
-                    <li>
-                      <h2>{order.id}</h2>
-                    </li>
-                  </ul>
-                </div>
+                <ul className="orderHistory__header">
+                  <li>
+                    <p className="orderHistory__orderAt">
+                      {moment(order.data.orderAt).format("MMMM do YYYY, h:mma")}
+                    </p>
+                  </li>
+                  <li>
+                    <h2>{order.id}</h2>
+                  </li>
+                </ul>
                 {order.data.orderItems.cartItems.map((cartItem) => (
                   <div className="orderHistory__body" key={cartItem.id}>
                     <div>
@@ -79,26 +75,23 @@ const OrderHistory = () => {
                     <strong>IDR {currency(order.data.price)}</strong>
                   </div>
                   <div className="orderHistory__bodyBotBtn">
-                    <div>
-                      <button
-                        onClick={() =>
-                          history.push(`/order/${order.data.orderTempId}`)
-                        }
-                      >
-                        Go To Details Order
-                      </button>
-                    </div>
-                    <div>
-                      <button
-                        type="button"
-                        onClick={() =>
-                          handleBuyAgain(order.data.orderItems.cartItems)
-                        }
-                        className="orderHistory__btnBuy"
-                      >
-                        Buy Again
-                      </button>
-                    </div>
+                    <button
+                      onClick={() =>
+                        history.push(`/order/${order.data.orderTempId}`)
+                      }
+                      className="orderHistory__btnDetailsOrder"
+                    >
+                      Details Order
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handleBuyAgain(order.data.orderItems.cartItems)
+                      }
+                      className="orderHistory__btnBuy"
+                    >
+                      Buy Again
+                    </button>
                   </div>
                 </div>
               </div>

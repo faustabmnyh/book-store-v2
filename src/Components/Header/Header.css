@@ -192,7 +192,7 @@
 
   .header__searchIcon {
     /* font-size: 2rem !important; */
-    color: white;
+    color: #fff;
   }
 
   .header__searchMainIcon {
@@ -316,6 +316,7 @@
     position: absolute;
     top: 3.2em;
     left: 0px;
+
     /* left: -1em; */
     border-radius: 0.6em;
     font-size: clamp(0.9rem, 0.75vw, 1.6rem);
