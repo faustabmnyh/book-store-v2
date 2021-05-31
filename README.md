@@ -2,7 +2,9 @@
 
 I build this with the following features, shopping cart, payment using PayPal, order history,login and register page etc.
 
-### Preview
+You can check the web below here [MG Store](https://mgbooks.netlify.app/).
+
+### Overview
 
 #### - Login and Register Page
 
