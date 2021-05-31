@@ -5,26 +5,15 @@
 }
 
 .completedPaymentSummary h2 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+  font-size: clamp(1.3rem, 1.8vw, 2rem);
+  margin-bottom: 1rem;
 }
 
-.completedPaymentSummary__item.lastPaySum {
-  margin-bottom: 20px;
+.completedPaymentSummary__item {
+  /* font-size: clamp(1rem, 1.2vw, 1.6rem); */
+  font-size: clamp(0.9rem, 1.2vw, 1.5rem);
 }
 
-.completedPaymentSummary__btn {
-  width: 100%;
-  height: 35px;
-  color: white;
-  border-radius: 30px;
-  background: #ff4800;
-  text-transform: uppercase;
-  font-family: "Quicksand", sans-serif;
-  border: none;
-  margin: 10px 0 0 0;
-  cursor: pointer;
-  font-weight: 700;
-  letter-spacing: 2px;
-  font-size: 0.8rem;
+.completedPaymentSummary__item.last-item {
+  margin-bottom: 1rem;
 }

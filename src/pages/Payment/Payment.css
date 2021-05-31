@@ -7,14 +7,13 @@
 
 .payment__container {
   background: white;
-  padding: 1.2rem;
-  margin-top: 20px;
+  padding: 1.5em;
+  margin-top: 2rem;
   border-radius: 20px;
   box-sizing: border-box;
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
 }
 .payment__left {
-  margin-right: 20px;
   flex: 2 1 30rem;
 }
 .payment__right {
@@ -22,81 +21,72 @@
 }
 
 .payment h2 {
-  font-size: 1.4rem;
+  font-size: clamp(1.3rem, 1.8vw, 2rem);
   margin-bottom: 20px;
 }
 
 .payment__card {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   margin-top: 20px;
+  flex-direction: column;
 }
 
 .payment__cardBook {
   width: 100%;
   justify-content: space-between;
-  align-items: center;
   display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
 }
 
 .payment__cardImg {
-  max-width: 5rem;
-  width: 100%;
+  max-width: 6rem;
+  width: 80%;
+  margin: 0 auto;
   border-radius: 20px;
-  margin-right: 10px;
 }
 
-@media (max-width: 768px) {
-  .payment__left {
-    margin-right: 0;
-    margin-top: 30px;
-  }
+.payment__address p,
+.payment__cardBook h3,
+.payment__cardBook p {
+  /* font-size: clamp(1rem, 1.2vw, 1.6rem); */
+  font-size: clamp(0.9rem, 1.2vw, 1.5rem);
+}
+
+@media (min-width: 550px) {
   .payment__cardBook {
-    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 0;
   }
-}
-
-@media (max-width: 425px) {
-  .payment h2 {
-    font-size: 18px;
-  }
-
   .payment__card {
-    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
   }
-
-  .payment__cardBook {
-    margin-top: 20px;
-  }
-
-  .payment__container {
-    font-size: 14px;
+  .payment__cardImg {
+    margin: 0 1rem 0 0;
   }
 }
 
-@media (min-width: 2000px) {
-  .payment {
-    padding: 6rem;
-  }
-
-  .payment h2 {
-    font-size: 40px;
-  }
-
+@media (min-width: 880px) {
   .payment__left {
-    margin-right: 30px;
+    margin-right: 2em;
   }
 
+  .payment__cardBook {
+    margin-top: 0;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1800px) {
   .payment__container {
-    padding: 2rem;
-    margin-top: 40px;
-    font-size: 30px;
-    border-radius: 30px;
+    padding: 2em;
   }
-
   .payment__cardImg {
-    max-width: 10rem;
-    border-radius: 35px;
+    max-width: 8.5rem;
+  }
+  .payment__right {
+    flex: 1 1 10rem;
   }
 }

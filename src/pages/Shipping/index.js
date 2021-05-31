@@ -33,73 +33,69 @@ const Shipping = () => {
   return (
     <div className="shipping">
       <CompletedSteps stepOne stepTwo />
-      <div className="shipping__container">
-        <form onSubmit={handleSubmit}>
-          <div>
-            <h1>Shipping Address</h1>
-          </div>
-          <div>
-            <label htmlFor="fullName">Full Name</label>
-            <input
-              type="text"
-              id="fullName"
-              placeholder="Full Name"
-              value={values.fullName}
-              onChange={handleChange("fullName")}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="address">Address</label>
-            <input
-              type="text"
-              id="address"
-              placeholder="Address"
-              value={values.address}
-              onChange={handleChange("address")}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="city">City</label>
-            <input
-              type="text"
-              id="city"
-              placeholder="City"
-              value={values.city}
-              onChange={handleChange("city")}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="postalCode">Postal Code</label>
-            <input
-              type="text"
-              id="postalCode"
-              placeholder="Postal Code"
-              value={values.postalCode}
-              onChange={handleChange("postalCode")}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="country">Country</label>
-            <input
-              type="text"
-              id="country"
-              placeholder="Country"
-              value={values.country}
-              onChange={handleChange("country")}
-              required
-            />
-          </div>
-          <div>
-            <button className="shipping__btn" type="submit">
-              Continue
-            </button>
-          </div>
-        </form>
-      </div>
+      <form onSubmit={handleSubmit} className="shipping__container">
+        <h1>Shipping Address</h1>
+        <div>
+          <label htmlFor="fullName">Full Name</label>
+          <input
+            type="text"
+            id="fullName"
+            placeholder="Full Name"
+            value={values.fullName}
+            onChange={handleChange("fullName")}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="address">Address</label>
+          <input
+            type="text"
+            id="address"
+            placeholder="Address"
+            value={values.address}
+            onChange={handleChange("address")}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="city">City</label>
+          <input
+            type="text"
+            id="city"
+            placeholder="City"
+            value={values.city}
+            onChange={handleChange("city")}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="postalCode">Postal Code</label>
+          <input
+            type="text"
+            id="postalCode"
+            placeholder="Postal Code"
+            value={values.postalCode}
+            onChange={handleChange("postalCode")}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="country">Country</label>
+          <input
+            type="text"
+            id="country"
+            placeholder="Country"
+            value={values.country}
+            onChange={handleChange("country")}
+            required
+          />
+        </div>
+        <div>
+          <button className="shipping__btn" type="submit">
+            Continue
+          </button>
+        </div>
+      </form>
     </div>
   );
 };

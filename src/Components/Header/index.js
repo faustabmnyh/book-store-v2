@@ -135,8 +135,11 @@ const Header = () => {
         <li onClick={handleNavMobile}>
           <Link to="/orderhistory">Order History</Link>
         </li>
-        <li onClick={handleNavMobile}>
+        <li onClick={handleNavMobile} className="header__mobileCart">
           <Link to="/cart">Cart</Link>
+          <p className="header__mobileCartNumber">
+            {cartItems.reduce((a, q) => a + q.qty, 0)}
+          </p>
         </li>
         <h4>Category</h4>
         <li id="books" onClick={handleCategory}>

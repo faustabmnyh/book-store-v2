@@ -55,42 +55,28 @@ const CompletedPaymentSummary = ({ order, id }) => {
       <li>
         <h2>Order Summary</h2>
       </li>
-      <li>
-        <div className="completedPaymentSummary__item">
-          <div>Items</div>
-          <div>IDR {currency(order.data.orderItems.itemsPrice)}</div>
-        </div>
+      <li className="completedPaymentSummary__item">
+        <div>Items</div>
+        <div>IDR {currency(order.data.orderItems.itemsPrice)}</div>
+      </li>
+      <li className="completedPaymentSummary__item">
+        <div>Shipping</div>
+        <div>IDR {currency(order.data.orderItems.shippingPrice)}</div>
+      </li>
+      <li className="completedPaymentSummary__item">
+        <div>Tax</div>
+        <div>IDR {currency(order.data.orderItems.taxPrice)}</div>
+      </li>
+      <li className="completedPaymentSummary__item last-item">
+        <strong>Order Total</strong>
+        <strong>IDR {currency(order.data.orderItems.totalPrice)}</strong>
       </li>
       <li>
-        <div className="completedPaymentSummary__item">
-          <div>Shipping</div>
-          <div>IDR {currency(order.data.orderItems.shippingPrice)}</div>
-        </div>
-      </li>
-      <li>
-        <div className="completedPaymentSummary__item">
-          <div>Tax</div>
-          <div>IDR {currency(order.data.orderItems.taxPrice)}</div>
-        </div>
-      </li>
-      <li>
-        <div className="completedPaymentSummary__item lastPaySum">
-          <div>
-            <strong>Order Total</strong>
-          </div>
-          <div>
-            <strong>IDR {currency(order.data.orderItems.totalPrice)}</strong>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div>
-          {order.data.isPaid ? (
-            <MessageBox variant="success">{order.data.orderPaidAt}</MessageBox>
-          ) : (
-            <MessageBox variant="danger">Waiting for payment</MessageBox>
-          )}
-        </div>
+        {order.data.isPaid ? (
+          <MessageBox variant="success">{order.data.orderPaidAt}</MessageBox>
+        ) : (
+          <MessageBox variant="danger">Waiting for payment</MessageBox>
+        )}
       </li>
       {!order.data.isPaid && (
         <li>

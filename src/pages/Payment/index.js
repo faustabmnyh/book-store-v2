@@ -23,19 +23,16 @@ const Payment = () => {
         <div className="payment__left">
           <ul>
             <div className="payment__container">
-              <li>
-                <div>
-                  <h2>Shipping</h2>
-                  <p>
-                    <strong>Name : </strong> {cart.shippingAddress.fullName}{" "}
-                    <br />
-                    <strong>Adddress : </strong> {cart.shippingAddress.address}{" "}
-                    <br />
-                    {cart.shippingAddress.city},{" "}
-                    {cart.shippingAddress.postalCode},{" "}
-                    {cart.shippingAddress.country}
-                  </p>
-                </div>
+              <li className="payment__address">
+                <h2>Shipping</h2>
+                <p>
+                  <strong>Name : </strong> {cart.shippingAddress.fullName}{" "}
+                  <br />
+                  <strong>Adddress : </strong> {cart.shippingAddress.address}{" "}
+                  <br />
+                  {cart.shippingAddress.city}, {cart.shippingAddress.postalCode}
+                  , {cart.shippingAddress.country}
+                </p>
               </li>
             </div>
             <li>
@@ -43,30 +40,28 @@ const Payment = () => {
                 <h2>Order Items</h2>
                 <ul>
                   {cart.cartItems.map((cartItem) => (
-                    <li key={cartItem.id}>
-                      <div className="payment__card">
-                        <img
-                          src={cartItem.image}
-                          alt={cartItem.title}
-                          className="payment__cardImg"
-                        />
+                    <li key={cartItem.id} className="payment__card">
+                      <img
+                        src={cartItem.image}
+                        alt={cartItem.title}
+                        className="payment__cardImg"
+                      />
 
-                        <div className="payment__cardBook">
-                          <div className="payment__cardTitle">
-                            <Link
-                              className="payment__titleText"
-                              to={`product/${cartItem.id}`}
-                            >
-                              {cartItem.title}
-                            </Link>
-                          </div>
-                          <div>
-                            IDR {currency(cartItem.price)} x {cartItem.qty} ={" "}
-                            <strong>
-                              IDR {currency(cartItem.qty * cartItem.price)}
-                            </strong>
-                          </div>
-                        </div>
+                      <div className="payment__cardBook">
+                        <h3 className="payment__cardTitle">
+                          <Link
+                            className="payment__titleText"
+                            to={`product/${cartItem.id}`}
+                          >
+                            {cartItem.title}
+                          </Link>
+                        </h3>
+                        <p>
+                          IDR {currency(cartItem.price)} x {cartItem.qty} ={" "}
+                          <strong>
+                            IDR {currency(cartItem.qty * cartItem.price)}
+                          </strong>
+                        </p>
                       </div>
                     </li>
                   ))}

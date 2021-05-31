@@ -36,3 +36,9 @@
     height: 400px;
   }
 }
+
+@media (min-width: 1800px) {
+  .home {
+    padding-top: 4rem;
+  }
+}

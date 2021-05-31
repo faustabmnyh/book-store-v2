@@ -72,12 +72,11 @@ hr {
   font-size: clamp(1.1rem, 1.5vw, 2rem);
 }
 
-.cart__cardAuthors {
-  font-size: 0.9rem;
-}
 
 .cart__cardTitle span {
-  font-size: 14px;
+  /* font-size: 14px; */
+  font-size: clamp(0.8rem, 0.75vw, 1.05rem);
+
   font-weight: 400;
   color: gray;
 }
@@ -153,7 +152,6 @@ hr {
   cursor: default;
   border: none;
   font-size: clamp(0.8rem, 0.75vw, 1.1rem);
-
 }
 
 .cart__counterBtnMinus,
@@ -200,6 +198,7 @@ hr {
 .cart__cardPrice {
   font-weight: bold;
   /* font-size: 1.2rem; */
+  margin-top: .5rem;
   font-size: clamp(1rem, 1.25vw, 1.7rem);
 }
 
@@ -244,8 +243,12 @@ hr {
   }
 }
 
-@media (min-width: 1900px) {
+@media (min-width: 1800px) {
   .cart__left {
     padding: 2em;
+  }
+
+  .cart__right {
+    flex: 1 1 10rem;
   }
 }

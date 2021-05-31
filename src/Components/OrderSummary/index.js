@@ -40,44 +40,30 @@ const OrderSummary = ({ cart }) => {
       <li>
         <h2>Order Summary</h2>
       </li>
-      <li>
-        <div className="orderSummary__item">
-          <div>Items</div>
-          <div>IDR {currency(cart.itemsPrice)}</div>
-        </div>
+      <li className="orderSummary__item">
+        <div>Items</div>
+        <div>IDR {currency(cart.itemsPrice)}</div>
+      </li>
+      <li className="orderSummary__item">
+        <div>Shipping</div>
+        <div>IDR {currency(cart.shippingPrice)}</div>
+      </li>
+      <li className="orderSummary__item">
+        <div>Tax</div>
+        <div>IDR {currency(cart.taxPrice)}</div>
+      </li>
+      <li className="orderSummary__item">
+        <strong>Order Total</strong>
+        <strong>IDR {currency(cart.totalPrice)}</strong>
       </li>
       <li>
-        <div className="orderSummary__item">
-          <div>Shipping</div>
-          <div>IDR {currency(cart.shippingPrice)}</div>
-        </div>
-      </li>
-      <li>
-        <div className="orderSummary__item">
-          <div>Tax</div>
-          <div>IDR {currency(cart.taxPrice)}</div>
-        </div>
-      </li>
-      <li>
-        <div className="orderSummary__item">
-          <div>
-            <strong>Order Total</strong>
-          </div>
-          <div>
-            <strong>IDR {currency(cart.totalPrice)}</strong>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div>
-          <button
-            className="orderSummary__btn"
-            type="submit"
-            onClick={handlePlaceOrder}
-          >
-            Place Order
-          </button>
-        </div>
+        <button
+          className="orderSummary__btn"
+          type="submit"
+          onClick={handlePlaceOrder}
+        >
+          Place Order
+        </button>
         {loading && <LoadingBox />}
         {error && <MessageBox variant="danger">{error}</MessageBox>}
       </li>
