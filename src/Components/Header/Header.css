@@ -43,13 +43,14 @@
 }
 
 .header__signin {
-  width: 60px;
-  height: 35px;
+  width: 6em;
+  padding: 0.75em 1em;
+  /* height: 35px; */
   margin-right: 20px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
-  font-size: 14px;
+  font-size: clamp(0.7rem, 1vw, 1.3rem);
   background: white;
   font-family: "Quicksand", sans-serif;
 }
@@ -361,8 +362,8 @@
   }
 
   .header__signup {
-    width: 90px;
-    height: 35px;
+    width: 6em;
+    padding: 0.75em 1em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -371,7 +372,7 @@
     border: none;
     cursor: pointer;
     font-weight: bold;
-    font-size: 14px;
+    font-size: clamp(0.7rem, 1vw, 1.3rem);
     outline: none;
     background: #ff4800;
     color: white;
