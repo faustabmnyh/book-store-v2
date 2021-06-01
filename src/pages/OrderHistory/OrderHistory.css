@@ -89,12 +89,12 @@
   width: 9em;
   /* height: 35px; */
   padding: 0.75em 0.5em;
+  font-size: clamp(0.7rem, 1vw, 1.3rem);
   font-family: "Quicksand", sans-serif;
   border-radius: 30px;
   border: none;
   cursor: pointer;
   /* font-size: 0.8rem; */
-  font-size: clamp(0.7rem, 1vw, 1.3rem);
   font-weight: 700;
 }
 .orderHistory__btnDetailsOrder {
