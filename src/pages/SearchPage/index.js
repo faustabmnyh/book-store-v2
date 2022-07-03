@@ -28,7 +28,7 @@ const SearchPage = () => {
   return loading ? (
     <LoadingBox />
   ) : error ? (
-    <MessageBox variant="danger">{error}</MessageBox>
+  <MessageBox variant="danger">{error}</MessageBox>
   ) : (
     <div className="searchPage">
       <h2>Search Result : {titlebook}</h2>

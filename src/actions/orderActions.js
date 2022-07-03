@@ -140,6 +140,7 @@ export const orderHistory = (userId) => async (dispatch) => {
     const data = await db.ref(`orders_history/${userId}`);
 
     data.on("value", (values) => {
+      console.log(values);
       const dataOrder = [];
       if (values) {
         Object?.keys(values.val() || {}).map((value) =>

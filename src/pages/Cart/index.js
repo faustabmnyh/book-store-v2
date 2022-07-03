@@ -29,7 +29,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="cart">
+    <div className="cart container">
       <div className="cart__left">
         <h1 className="cart__title">
           Shopping Cart
@@ -37,9 +37,12 @@ const Cart = () => {
         </h1>
         <hr />
         {cartItems.length === 0 ? (
-          <MessageBox>
-            Cart Is Empty <Link to="/">Go To Shop</Link>
-          </MessageBox>
+          <>
+            <br />
+            <MessageBox>
+              Cart Is Empty <Link to="/">Go To Shop</Link>
+            </MessageBox>
+          </>
         ) : (
           <ul>
             {cartItems?.map((cartItem) => (

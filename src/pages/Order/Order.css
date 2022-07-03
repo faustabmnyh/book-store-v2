@@ -1,3 +1,7 @@
+.order {
+  padding: 3em 0;
+}
+
 .order h1 {
   font-size: clamp(1.4rem, 2vw, 3rem);
 }
@@ -51,7 +55,6 @@
   border-radius: 20px;
 }
 
-
 .order__address p,
 .order__cardBook h3,
 .order__cardBook p {
@@ -95,5 +98,4 @@
   .order__right {
     flex: 1 1 10rem;
   }
-  
 }

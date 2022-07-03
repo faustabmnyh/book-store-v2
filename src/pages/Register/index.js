@@ -43,19 +43,20 @@ const Register = ({ location }) => {
   }, [history, redirect, userInfo]);
   return (
     <div className="register">
-      <Link to="/">
-        <img
-          alt=""
-          src="/images/pictures/store.png"
-          className="register__logo"
-        />
+      <Link to="/" className="register__logo">
+        <img src="/images/pictures/logo.svg" alt="" />
+        <span>MR. BOOK</span>
       </Link>
       {loading && <LoadingBox />}
-      {(error || errorPassword) && (
-        <MessageBox variant="danger">{error || errorPassword}</MessageBox>
-      )}
+
       <div className="register__container">
-        <h1>Create New Account</h1>
+        <h1>Welcome to Mr. Book</h1>
+        <span className="register__text">
+          Create account and buy your favorite books only on Mr. Book
+        </span>
+        {(error || errorPassword) && (
+          <MessageBox variant="danger">{error || errorPassword}</MessageBox>
+        )}
         <form onSubmit={handleSubmit}>
           <h5>Username</h5>
           <input

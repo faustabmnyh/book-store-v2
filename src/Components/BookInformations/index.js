@@ -14,7 +14,7 @@ const BookInformations = ({ product }) => {
         </div>
         <div>
           Language :
-          {product.volumeInfo.language === "en" ? "English" : "Indonesia"}
+          {product.volumeInfo.language === "en" ? " English" : " Indonesia"}
         </div>
         <div>
           Author :

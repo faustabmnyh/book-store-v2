@@ -37,6 +37,12 @@ const Product = ({ product }) => {
           ) : (
             <div className="product__author">Unknown</div>
           )}
+          <p
+            className="product__description"
+            dangerouslySetInnerHTML={{
+              __html: truncate(product.volumeInfo.description, 120),
+            }}
+          />
         </div>
         <div className="product__prices">
           <p className="product__price price">

@@ -81,7 +81,7 @@ const CompletedPaymentSummary = ({ order, id }) => {
       {!order.data.isPaid && (
         <li>
           {!sdkReady ? (
-            <LoadingBox />
+            <LoadingBox height="fit-content" />
           ) : (
             <>
               {errorPayment && (
@@ -89,6 +89,7 @@ const CompletedPaymentSummary = ({ order, id }) => {
               )}
               {loadingPayment && <LoadingBox />}
               <PayPalButton
+              
                 amount={(order.data.orderItems.totalPrice / 14000).toFixed(2)}
                 onSuccess={handleSuccessPayment}
               />

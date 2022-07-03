@@ -1,7 +1,7 @@
 .detailProduct {
   width: calc(100% + 2rem);
   margin-left: -1rem;
-  padding: 1em 0;
+  padding: 3em 0;
 }
 
 .detailProducts__content {
@@ -53,12 +53,17 @@
   margin: 1rem 0 0.5rem 0;
 }
 .detailProducts__description {
-  font-size: clamp(0.9rem, 1.15vw, 1.3rem);
+  font-size: 1rem;
+}
+
+.detailProducts__description p {
+  line-height: 1.5;
+  font-size: 1rem;
 }
 
 @media (min-width: 500px) {
   .detailProduct {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
   }
   .detailProduct__bookInfo {

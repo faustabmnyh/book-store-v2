@@ -1,18 +1,23 @@
 .register {
   min-height: 100vh;
   display: flex;
-  width: 85%;
-  margin: 0 auto;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 3em 0;
   font-family: "Quicksand", sans-serif;
 }
 
 .register__logo {
-  margin-top: 50px;
-  margin-bottom: 20px;
-  width: 200px;
-  object-fit: contain;
+  display: flex;
+  font-weight: 700;
+  width: fit-content;
+  color: #ff4800;
+  align-items: flex-end;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
 }
 
 .register__container {
@@ -20,50 +25,62 @@
   flex-direction: column;
   padding: 30px;
   border-radius: 20px;
-  max-width: 400px;
+  max-width: 23rem;
   width: 100%;
   height: fit-content;
   box-sizing: border-box;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-  margin-bottom: 50px;
 }
 
 .register__container h1 {
   font-weight: 500;
-  margin-bottom: 10px;
-  color: #ff4800;
+  /* color: #ff4800; */
+  /* margin-bottom: 1rem; */
   font-weight: 700;
 }
 
+.register__text {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  display: block;
+}
+
 .register__container form h5 {
-  margin-bottom: 5px;
+  font-size: 1rem;
 }
 
 .register__container form input {
-  width: 98%;
-  height: 40px;
+  width: 100%;
   margin-bottom: 10px;
-  border-radius: 3px;
   outline: none;
+  font-size: 1rem;
+  padding: 0.75em 1em;
+  border-radius: 0.75em;
   font-family: "Quicksand", sans-serif;
   border: 1px solid rgb(218, 218, 218);
-  text-indent: 5px;
 }
 
 .register__container form button {
   width: 100%;
-  height: 35px;
+  padding: 0.75em 1em;
   color: white;
-  border-radius: 30px;
+  font-size: 1rem;
+  border-radius: 3em;
   background: #ff4800;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-family: "Quicksand", sans-serif;
   border: none;
   margin: 10px 0;
   cursor: pointer;
+  transition: 0.25s;
   font-weight: 700;
-  letter-spacing: 2px;
+  /* letter-spacing: 2px; */
   box-shadow: 0px 5px 10px rgba(255, 72, 0, 0.3);
+}
+
+.register__container form button:hover {
+  box-shadow: none;
 }
 
 .register__signinLink {
@@ -84,4 +101,12 @@
   border-radius: 30px;
   margin-bottom: 5px;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .register__logo span {
+    display: block;
+    margin-left: 0.5rem;
+    margin-bottom: 0.35rem;
+  }
 }

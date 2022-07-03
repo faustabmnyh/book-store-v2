@@ -30,7 +30,7 @@ const OrderHistory = () => {
   ) : error ? (
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
-    <div className="orderHistory">
+    <div className="orderHistory container">
       <h1>Order History</h1>
       <div className="orderHistory__allContent">
         {orders.length === 0 ? (

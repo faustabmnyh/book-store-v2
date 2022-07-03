@@ -17,7 +17,7 @@ const Payment = () => {
     history.push("/shipping");
   }
   return (
-    <div className="payment">
+    <div className="payment container">
       <CompletedSteps stepOne stepTwo stepThree />
       <div className="payment__content">
         <div className="payment__left">

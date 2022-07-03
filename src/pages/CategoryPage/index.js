@@ -22,7 +22,7 @@ const CategoryPage = () => {
   ) : (
     <div className="categoryPage">
       <h1 className>{category}</h1>
-      <div className="categoryPage__content container">
+      <div className="categoryPage__content container-product">
         {products.map((product) => (
           <Product product={product} key={product.id} />
         ))}

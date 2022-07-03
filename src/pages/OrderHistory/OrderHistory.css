@@ -3,6 +3,7 @@
   margin: 0 auto;
   font-family: "quicksand";
   margin-top: 1rem;
+  padding: 3em 0;
 }
 
 .orderHistory h1 {
@@ -127,9 +128,9 @@
 }
 
 @media (min-width: 768px) {
-  .orderHistory {
+  /* .orderHistory {
     width: 80%;
-  }
+  } */
   .orderHistory__container {
     padding: 1.5em;
   }

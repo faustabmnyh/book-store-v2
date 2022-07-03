@@ -5,10 +5,11 @@
   padding: 1.2em;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
   background: white;
-  max-width: 16rem;
+  /* max-width: 16rem; */
   font-family: "Quicksand", sans-serif;
   width: 100%;
-  height: max(15vw, 23rem);
+  height: 100%;
+  /* height: max(15vw, 23rem); */
 }
 /* border: 2px solid transparent;
 -webkit-font-smoothing: antialiased;
@@ -36,6 +37,12 @@ backdrop-filter: blur(20px); */
 
 .product__title {
   font-size: clamp(1.1rem, 0.75vw, 2rem);
+}
+
+.product__description {
+  font-size: 0.9rem;
+  /* font-weight: 700; */
+  margin-top: 1rem;
 }
 
 .product__author {

@@ -25,13 +25,20 @@ const Signin = ({ location }) => {
   }, [history, userInfo, redirect]);
   return (
     <div className="signin">
-      <Link to="/">
-        <img alt="" src="/images/pictures/store.png" className="signin__logo" />
+      <Link to="/" className="signin__logo">
+        <img src="/images/pictures/logo.svg" alt="" />
+        <span>MR. BOOK</span>
       </Link>
+      {/* <Link to="/">
+        <img alt="" src="/images/pictures/store.png" />
+      </Link> */}
       {loading && <LoadingBox />}
-      {error && <MessageBox variant="danger">{error}</MessageBox>}
       <div className="signin__container">
-        <h1>Sign In</h1>
+        <h1>Welcome Back!</h1>
+        <span className="signin__text">
+          Hello, enter your credentials to get sign in to your account.
+        </span>
+        {error && <MessageBox variant="danger">{error}</MessageBox>}
         <form onSubmit={handleSubmit}>
           <h5>Email</h5>
           <input

@@ -20,7 +20,7 @@ const DetailProduct = () => {
     dispatch(detailsProduct(id));
   }, [dispatch, id]);
   return (
-    <div className="detailProduct">
+    <div className="detailProduct container">
       {loading ? (
         <LoadingBox />
       ) : error ? (

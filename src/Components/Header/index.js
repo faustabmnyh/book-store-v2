@@ -18,7 +18,8 @@ const Header = () => {
   const handleSignout = () => {
     dispatch(signout());
   };
-  const handleSearch = () => {
+  const handleSearch = (e) => {
+    e.preventDefault();
     history.push(`/search/${titleBook}`);
     if (window.innerWidth <= 768) {
       navMobile.current.classList.remove("show");
@@ -40,86 +41,96 @@ const Header = () => {
   };
   return (
     <header>
-      <div className="header">
-        <Link to="/">
-          <img
-            className="header__logo"
-            src="/images/pictures/store.svg"
-            alt=""
-          />
-        </Link>
-        <form className="header__search" onSubmit={handleSearch}>
-          <input
-            placeholder="Search..."
-            className="header__searchInput"
-            type="text"
-            onChange={(e) => setTitleBook(e.target.value)}
-          />
-          <button className="header__searchMainIcon" type="submit">
-            <SearchIcon className="header__searchIcon" />
-          </button>
-        </form>
-        <div className="header__right">
-          <div className="header__category">
-            <p className="header__categoryTitle">Category</p>
-            <ul className="header__categoryDropdown">
-              <li
-                id="books"
-                onClick={handleCategory}
-                className="dropdown__link"
-              >
-                Books
-              </li>
-              <li
-                id="magazines"
-                onClick={handleCategory}
-                className="dropdown__link"
-              >
-                Magazines
-              </li>
-            </ul>
-          </div>
-          <Link to="/cart">
-            <div className="header__cart">
-              <ShoppingCartOutlinedIcon className="header__cartIcon" />
-              <p className="header__cartNumber">
-                {cartItems.reduce((a, q) => a + q.qty, 0)}
-              </p>
-            </div>
+      <div className="header ">
+        <div className="container header-container">
+          <Link to="/" className="header__logo">
+            <img src="/images/pictures/logo.svg" alt="" />
+            <span>MR. BOOK</span>
           </Link>
-          {userInfo ? (
-            <div className="header__userProfileDropdown">
-              <div className="header__userProfile" onClick={handleNavMobile}>
-                <Avatar
-                  alt="girls"
-                  src="/images/pictures/avatar.jpg"
-                  className="header__avatar"
-                />
-                <p>{userInfo.username}</p>
-              </div>
-              <ul className="header__dropdownContent">
-                <li>
-                  <Link to="/orderhistory">Order History</Link>
+          <form className="header__search" onSubmit={handleSearch}>
+            <input
+              placeholder="Search..."
+              className="header__searchInput"
+              type="text"
+              onChange={(e) => setTitleBook(e.target.value)}
+            />
+            <button className="header__searchMainIcon" type="submit">
+              <SearchIcon className="header__searchIcon" color="white" />
+            </button>
+          </form>
+          <div className="header__right">
+            <div className="header__category">
+              <p className="header__categoryTitle">Category</p>
+              <ul className="header__categoryDropdown">
+                <li
+                  id="books"
+                  onClick={handleCategory}
+                  className="dropdown__link"
+                >
+                  Books
                 </li>
-                <li>
-                  <Link to="/signin" onClick={handleSignout}>
-                    Sign Out
-                  </Link>
+                <li
+                  id="magazines"
+                  onClick={handleCategory}
+                  className="dropdown__link"
+                >
+                  Magazines
                 </li>
               </ul>
             </div>
-          ) : (
-            <>
-              <div className="header__auth">
-                <Link to="/signin">
-                  <button className="header__signin">Sign In</button>
-                </Link>
-                <Link to="/register">
-                  <button className="header__signup">Sign Up</button>
-                </Link>
+            <Link to="/cart">
+              <div className="header__cart">
+                <img
+                  src="/images/icons/cart.svg"
+                  className="header__cartIcon"
+                  alt=""
+                />
+                {/* <ShoppingCartOutlinedIcon className="header__cartIcon" /> */}
+                <p className="header__cartNumber">
+                  {cartItems.reduce((a, q) => a + q.qty, 0)}
+                </p>
               </div>
-            </>
-          )}
+            </Link>
+            {userInfo ? (
+              <div className="header__userProfileDropdown">
+                <div className="header__userProfile" onClick={handleNavMobile}>
+                  <Avatar
+                    alt="girls"
+                    src="/images/pictures/avatar.jpg"
+                    className="header__avatar"
+                  />
+                  <p>{userInfo.username}</p>
+                </div>
+                <ul className="header__dropdownContent">
+                  <li>
+                    <Link to="/orderhistory">Order History</Link>
+                  </li>
+                  <li>
+                    <Link to="/signin" onClick={handleSignout}>
+                      Sign Out
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <>
+                <div className="header__auth">
+                  <button
+                    className="header__signup"
+                    onClick={() => history.push("/register")}
+                  >
+                    Sign Up Mr.Book
+                  </button>
+                  <button
+                    className="header__signin"
+                    onClick={() => history.push("/signin")}
+                  >
+                    Sign In{" "}
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
 
