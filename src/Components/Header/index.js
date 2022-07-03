@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import SearchIcon from "@material-ui/icons/Search";
 import "./Header.css";
 import { useDispatch, useSelector } from "react-redux";
