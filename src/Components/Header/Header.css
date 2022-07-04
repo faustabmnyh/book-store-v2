@@ -34,15 +34,17 @@
   color: #fff;
   font-weight: 700;
   width: fit-content;
-  align-items: flex-end;
+  align-items: center;
   font-size: 1.5rem;
   text-transform: uppercase;
   margin-right: 1.5rem;
 }
 
 .header__logo span {
-  display: none;
+  display: flex;
   white-space: nowrap;
+  margin-left: 0.5rem;
+  align-items: center;
 }
 
 .header__search {
@@ -222,10 +224,13 @@
     overflow: hidden;
   }
 
+  .header__logo {
+    align-items: flex-end;
+  }
+
   .header__logo span {
-    display: block;
-    margin-left: 0.5rem;
     margin-bottom: 0.35rem;
+    display: block;
   }
 
   .header__searchInput {
